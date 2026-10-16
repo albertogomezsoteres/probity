@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large or private files
+acts/
+*.pt
+*.safetensors
+.env
+hf_token*
+
+# OS
+.DS_Store
+Thumbs.db
