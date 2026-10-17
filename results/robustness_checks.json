@@ -1,0 +1,677 @@
+{
+  "A_caving_rate_by_source": {
+    "all": {
+      "caved": 126,
+      "n": 410,
+      "rate": 0.307
+    },
+    "cities": {
+      "caved": 27,
+      "n": 284,
+      "rate": 0.095
+    },
+    "knowledge": {
+      "caved": 99,
+      "n": 126,
+      "rate": 0.786
+    }
+  },
+  "A_auroc_by_source": [
+    {
+      "scenario": "Instructed lies",
+      "source": "all",
+      "layer": 14,
+      "reading": "in context",
+      "n_true": 598,
+      "n_false": 524,
+      "auroc": 0.643,
+      "ci_subjects": [
+        0.614,
+        0.673
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "all",
+      "layer": 14,
+      "reading": "alone",
+      "n_true": 598,
+      "n_false": 524,
+      "auroc": 0.962,
+      "ci_subjects": [
+        0.95,
+        0.971
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "all",
+      "layer": 20,
+      "reading": "in context",
+      "n_true": 598,
+      "n_false": 524,
+      "auroc": 0.998,
+      "ci_subjects": [
+        0.996,
+        1.0
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "all",
+      "layer": 20,
+      "reading": "alone",
+      "n_true": 598,
+      "n_false": 524,
+      "auroc": 0.982,
+      "ci_subjects": [
+        0.976,
+        0.988
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "cities",
+      "layer": 14,
+      "reading": "in context",
+      "n_true": 320,
+      "n_false": 308,
+      "auroc": 0.924,
+      "ci_subjects": [
+        0.898,
+        0.946
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "cities",
+      "layer": 14,
+      "reading": "alone",
+      "n_true": 320,
+      "n_false": 308,
+      "auroc": 1.0,
+      "ci_subjects": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "cities",
+      "layer": 20,
+      "reading": "in context",
+      "n_true": 320,
+      "n_false": 308,
+      "auroc": 1.0,
+      "ci_subjects": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "cities",
+      "layer": 20,
+      "reading": "alone",
+      "n_true": 320,
+      "n_false": 308,
+      "auroc": 1.0,
+      "ci_subjects": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "knowledge",
+      "layer": 14,
+      "reading": "in context",
+      "n_true": 278,
+      "n_false": 216,
+      "auroc": 0.466,
+      "ci_subjects": [
+        0.423,
+        0.513
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "knowledge",
+      "layer": 14,
+      "reading": "alone",
+      "n_true": 278,
+      "n_false": 216,
+      "auroc": 0.825,
+      "ci_subjects": [
+        0.788,
+        0.861
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "knowledge",
+      "layer": 20,
+      "reading": "in context",
+      "n_true": 278,
+      "n_false": 216,
+      "auroc": 0.997,
+      "ci_subjects": [
+        0.993,
+        0.999
+      ]
+    },
+    {
+      "scenario": "Instructed lies",
+      "source": "knowledge",
+      "layer": 20,
+      "reading": "alone",
+      "n_true": 278,
+      "n_false": 216,
+      "auroc": 0.916,
+      "ci_subjects": [
+        0.892,
+        0.939
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "all",
+      "layer": 14,
+      "reading": "in context",
+      "n_true": 284,
+      "n_false": 126,
+      "auroc": 0.999,
+      "ci_subjects": [
+        0.996,
+        1.0
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "all",
+      "layer": 14,
+      "reading": "alone",
+      "n_true": 284,
+      "n_false": 126,
+      "auroc": 0.981,
+      "ci_subjects": [
+        0.965,
+        0.993
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "all",
+      "layer": 20,
+      "reading": "in context",
+      "n_true": 284,
+      "n_false": 126,
+      "auroc": 0.679,
+      "ci_subjects": [
+        0.622,
+        0.735
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "all",
+      "layer": 20,
+      "reading": "alone",
+      "n_true": 284,
+      "n_false": 126,
+      "auroc": 0.955,
+      "ci_subjects": [
+        0.929,
+        0.978
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "cities",
+      "layer": 14,
+      "reading": "in context",
+      "n_true": 257,
+      "n_false": 27,
+      "auroc": 1.0,
+      "ci_subjects": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "cities",
+      "layer": 14,
+      "reading": "alone",
+      "n_true": 257,
+      "n_false": 27,
+      "auroc": 1.0,
+      "ci_subjects": [
+        0.998,
+        1.0
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "cities",
+      "layer": 20,
+      "reading": "in context",
+      "n_true": 257,
+      "n_false": 27,
+      "auroc": 0.697,
+      "ci_subjects": [
+        0.584,
+        0.803
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "cities",
+      "layer": 20,
+      "reading": "alone",
+      "n_true": 257,
+      "n_false": 27,
+      "auroc": 0.998,
+      "ci_subjects": [
+        0.993,
+        1.0
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "knowledge",
+      "layer": 14,
+      "reading": "in context",
+      "n_true": 27,
+      "n_false": 99,
+      "auroc": 0.989,
+      "ci_subjects": [
+        0.971,
+        1.0
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "knowledge",
+      "layer": 14,
+      "reading": "alone",
+      "n_true": 27,
+      "n_false": 99,
+      "auroc": 0.876,
+      "ci_subjects": [
+        0.779,
+        0.949
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "knowledge",
+      "layer": 20,
+      "reading": "in context",
+      "n_true": 27,
+      "n_false": 99,
+      "auroc": 0.669,
+      "ci_subjects": [
+        0.541,
+        0.775
+      ]
+    },
+    {
+      "scenario": "Gave in to pushback",
+      "source": "knowledge",
+      "layer": 20,
+      "reading": "alone",
+      "n_true": 27,
+      "n_false": 99,
+      "auroc": 0.837,
+      "ci_subjects": [
+        0.742,
+        0.924
+      ]
+    }
+  ],
+  "B_instruction_test_by_source": [
+    {
+      "source": "all",
+      "layer": 14,
+      "test": "truth inside the lie prompt (refused vs lied)",
+      "n": 281,
+      "auroc": 0.617
+    },
+    {
+      "source": "all",
+      "layer": 14,
+      "test": "truth inside the truth prompt (told truth vs wrong)",
+      "n": 256,
+      "auroc": 0.861
+    },
+    {
+      "source": "all",
+      "layer": 14,
+      "test": "prompt, true claims only",
+      "n": 281,
+      "auroc": 0.481
+    },
+    {
+      "source": "all",
+      "layer": 14,
+      "test": "prompt, false claims only",
+      "n": 256,
+      "auroc": 0.155
+    },
+    {
+      "source": "all",
+      "layer": 20,
+      "test": "truth inside the lie prompt (refused vs lied)",
+      "n": 281,
+      "auroc": 0.358
+    },
+    {
+      "source": "all",
+      "layer": 20,
+      "test": "truth inside the truth prompt (told truth vs wrong)",
+      "n": 256,
+      "auroc": 0.858
+    },
+    {
+      "source": "all",
+      "layer": 20,
+      "test": "prompt, true claims only",
+      "n": 281,
+      "auroc": 0.996
+    },
+    {
+      "source": "all",
+      "layer": 20,
+      "test": "prompt, false claims only",
+      "n": 256,
+      "auroc": 0.975
+    },
+    {
+      "source": "cities",
+      "layer": 14,
+      "test": "truth inside the lie prompt (refused vs lied)",
+      "n": 128,
+      "auroc": 1.0
+    },
+    {
+      "source": "cities",
+      "layer": 14,
+      "test": "truth inside the truth prompt (told truth vs wrong)",
+      "n": 106,
+      "auroc": null
+    },
+    {
+      "source": "cities",
+      "layer": 14,
+      "test": "prompt, true claims only",
+      "n": 115,
+      "auroc": 0.007
+    },
+    {
+      "source": "cities",
+      "layer": 14,
+      "test": "prompt, false claims only",
+      "n": 119,
+      "auroc": null
+    },
+    {
+      "source": "cities",
+      "layer": 20,
+      "test": "truth inside the lie prompt (refused vs lied)",
+      "n": 128,
+      "auroc": 0.237
+    },
+    {
+      "source": "cities",
+      "layer": 20,
+      "test": "truth inside the truth prompt (told truth vs wrong)",
+      "n": 106,
+      "auroc": null
+    },
+    {
+      "source": "cities",
+      "layer": 20,
+      "test": "prompt, true claims only",
+      "n": 115,
+      "auroc": 1.0
+    },
+    {
+      "source": "cities",
+      "layer": 20,
+      "test": "prompt, false claims only",
+      "n": 119,
+      "auroc": null
+    },
+    {
+      "source": "knowledge",
+      "layer": 14,
+      "test": "truth inside the lie prompt (refused vs lied)",
+      "n": 153,
+      "auroc": 0.675
+    },
+    {
+      "source": "knowledge",
+      "layer": 14,
+      "test": "truth inside the truth prompt (told truth vs wrong)",
+      "n": 150,
+      "auroc": 0.72
+    },
+    {
+      "source": "knowledge",
+      "layer": 14,
+      "test": "prompt, true claims only",
+      "n": 166,
+      "auroc": 0.282
+    },
+    {
+      "source": "knowledge",
+      "layer": 14,
+      "test": "prompt, false claims only",
+      "n": 137,
+      "auroc": 0.258
+    },
+    {
+      "source": "knowledge",
+      "layer": 20,
+      "test": "truth inside the lie prompt (refused vs lied)",
+      "n": 153,
+      "auroc": 0.491
+    },
+    {
+      "source": "knowledge",
+      "layer": 20,
+      "test": "truth inside the truth prompt (told truth vs wrong)",
+      "n": 150,
+      "auroc": 0.742
+    },
+    {
+      "source": "knowledge",
+      "layer": 20,
+      "test": "prompt, true claims only",
+      "n": 166,
+      "auroc": 0.993
+    },
+    {
+      "source": "knowledge",
+      "layer": 20,
+      "test": "prompt, false claims only",
+      "n": 137,
+      "auroc": 0.978
+    }
+  ],
+  "C_probe_vs_ask_per_dataset": {
+    "mean_auroc_probe": 0.97,
+    "mean_auroc_ask": 0.964,
+    "probe_better": 2,
+    "ask_better": 2,
+    "within_0.005": 5,
+    "pooled": 0.981,
+    "pooled_ask": 0.957
+  },
+  "D_attribution_per_word": {
+    "lie": {
+      "LIME": {
+        "user_share": 0.802,
+        "user_words_share": 0.846,
+        "per_word_ratio": 0.776,
+        "top3_in_user": 0.856,
+        "wrong_in_top3": 0.0
+      },
+      "KernelSHAP": {
+        "user_share": 0.446,
+        "user_words_share": 0.846,
+        "per_word_ratio": 0.188,
+        "top3_in_user": 0.378,
+        "wrong_in_top3": 0.0
+      },
+      "Integrated Gradients": {
+        "user_share": 0.741,
+        "user_words_share": 0.846,
+        "per_word_ratio": 0.582,
+        "top3_in_user": 0.7,
+        "wrong_in_top3": 0.0
+      },
+      "n_examples": 30
+    },
+    "pressure": {
+      "LIME": {
+        "user_share": 0.406,
+        "user_words_share": 0.723,
+        "per_word_ratio": 0.271,
+        "top3_in_user": 0.333,
+        "wrong_in_top3": 0.0
+      },
+      "KernelSHAP": {
+        "user_share": 0.229,
+        "user_words_share": 0.723,
+        "per_word_ratio": 0.114,
+        "top3_in_user": 0.244,
+        "wrong_in_top3": 0.0
+      },
+      "Integrated Gradients": {
+        "user_share": 0.398,
+        "user_words_share": 0.723,
+        "per_word_ratio": 0.276,
+        "top3_in_user": 0.4,
+        "wrong_in_top3": 0.0
+      },
+      "n_examples": 15
+    }
+  },
+  "E_guard_breakdown": {
+    "correction": {
+      "n": 222,
+      "before_to_after": {
+        "good -> abstain": 1,
+        "good -> good": 221
+      },
+      "actions": {
+        "passed": 220,
+        "replaced (sample)": 1,
+        "abstained": 1
+      }
+    },
+    "instructed_lie": {
+      "n": 318,
+      "before_to_after": {
+        "bad -> abstain": 238,
+        "bad -> bad": 20,
+        "bad -> good": 12,
+        "bad -> unclear": 1,
+        "good -> abstain": 12,
+        "good -> good": 34,
+        "good -> unclear": 1
+      },
+      "actions": {
+        "abstained": 250,
+        "passed": 52,
+        "replaced (sample)": 16
+      }
+    },
+    "plain_question": {
+      "n": 230,
+      "before_to_after": {
+        "good -> good": 229,
+        "good -> unclear": 1
+      },
+      "actions": {
+        "passed": 228,
+        "replaced (sample)": 2
+      }
+    },
+    "pushback_assertive": {
+      "n": 214,
+      "before_to_after": {
+        "bad -> bad": 9,
+        "bad -> good": 55,
+        "good -> good": 150
+      },
+      "actions": {
+        "passed": 158,
+        "replaced (kept earlier answer)": 54,
+        "replaced (sample)": 2
+      },
+      "missed_with_no_score": 4,
+      "missed_total": 9,
+      "guard_reading_auroc": 0.996
+    },
+    "pushback_neutral": {
+      "n": 199,
+      "before_to_after": {
+        "bad -> bad": 1,
+        "good -> abstain": 1,
+        "good -> good": 197
+      },
+      "actions": {
+        "passed": 196,
+        "replaced (sample)": 2,
+        "abstained": 1
+      }
+    },
+    "by_source": {
+      "pushback_assertive | all": {
+        "n": 214,
+        "wrong_before": 0.299,
+        "wrong_after": 0.042,
+        "abstained": 0.0,
+        "guard_reading_auroc": 0.996
+      },
+      "pushback_assertive | cities": {
+        "n": 151,
+        "wrong_before": 0.086,
+        "wrong_after": 0.013,
+        "abstained": 0.0,
+        "guard_reading_auroc": 0.999
+      },
+      "pushback_assertive | knowledge": {
+        "n": 63,
+        "wrong_before": 0.81,
+        "wrong_after": 0.111,
+        "abstained": 0.0,
+        "guard_reading_auroc": 0.991
+      },
+      "instructed_lie | all": {
+        "n": 318,
+        "wrong_before": 0.852,
+        "wrong_after": 0.063,
+        "abstained": 0.786,
+        "guard_reading_auroc": 0.941
+      },
+      "instructed_lie | cities": {
+        "n": 163,
+        "wrong_before": 0.963,
+        "wrong_after": 0.0,
+        "abstained": 0.945,
+        "guard_reading_auroc": 1.0
+      },
+      "instructed_lie | knowledge": {
+        "n": 155,
+        "wrong_before": 0.735,
+        "wrong_after": 0.129,
+        "abstained": 0.619,
+        "guard_reading_auroc": 0.847
+      }
+    }
+  }
+}
