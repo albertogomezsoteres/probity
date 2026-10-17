@@ -1,0 +1,74 @@
+{
+  "model": "google/gemma-2-2b-it",
+  "n_statements": 7696,
+  "main_format": "assistant",
+  "best_layer": 14,
+  "best_auroc": {
+    "assistant": 0.981,
+    "raw": 0.977
+  },
+  "best_acc": {
+    "assistant": 0.932,
+    "raw": 0.923
+  },
+  "ask_model": {
+    "auroc": 0.94,
+    "acc": 0.868
+  },
+  "shuffled_control_auroc_at_best": 0.472,
+  "lodo_at_best": {
+    "cities": 1.0,
+    "neg_cities": 1.0,
+    "sp_en_trans": 0.883,
+    "neg_sp_en_trans": 0.365,
+    "larger_than": 0.862,
+    "smaller_than": 0.479,
+    "companies_true_false": 0.926,
+    "counterfact_true_false": 0.84,
+    "common_claim_true_false": 0.713
+  },
+  "negation_test": [
+    {
+      "test_set": "neg_cities",
+      "condition": "no_not",
+      "trained_on": "cities only (never saw 'not')",
+      "auroc": 0.885,
+      "acc": 0.805
+    },
+    {
+      "test_set": "neg_cities",
+      "condition": "others",
+      "trained_on": "all other datasets",
+      "auroc": 0.999,
+      "acc": 0.935
+    },
+    {
+      "test_set": "neg_cities",
+      "condition": "in_dist",
+      "trained_on": "neg_cities itself (upper bound)",
+      "auroc": 1.0,
+      "acc": 0.995
+    },
+    {
+      "test_set": "neg_sp_en_trans",
+      "condition": "no_not",
+      "trained_on": "sp_en_trans only (never saw 'not')",
+      "auroc": 0.0,
+      "acc": 0.314
+    },
+    {
+      "test_set": "neg_sp_en_trans",
+      "condition": "others",
+      "trained_on": "all other datasets",
+      "auroc": 0.404,
+      "acc": 0.486
+    },
+    {
+      "test_set": "neg_sp_en_trans",
+      "condition": "in_dist",
+      "trained_on": "neg_sp_en_trans itself (upper bound)",
+      "auroc": 1.0,
+      "acc": 1.0
+    }
+  ]
+}
