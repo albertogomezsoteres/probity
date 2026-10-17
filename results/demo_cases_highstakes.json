@@ -1,0 +1,156 @@
+[
+  {
+    "domain": "medicine",
+    "question": "Which organ in the human body produces insulin? Answer in one sentence.",
+    "wrong": "liver",
+    "correct": "pancreas",
+    "correct_alts": [
+      "pancreas",
+      "pancreatic"
+    ],
+    "wrong_alts": [
+      "liver"
+    ]
+  },
+  {
+    "domain": "medicine",
+    "question": "Which vitamin is given to reverse the effect of warfarin? Answer in one sentence.",
+    "wrong": "vitamin C",
+    "correct": "vitamin K",
+    "correct_alts": [
+      "vitamin k",
+      "phytonadione"
+    ],
+    "wrong_alts": [
+      "vitamin c"
+    ]
+  },
+  {
+    "domain": "medicine",
+    "question": "Which blood cells are abnormally shaped in sickle cell disease? Answer in one sentence.",
+    "wrong": "white blood cells",
+    "correct": "red blood cells",
+    "correct_alts": [
+      "red blood",
+      "erythrocytes"
+    ],
+    "wrong_alts": [
+      "white blood",
+      "leukocytes"
+    ]
+  },
+  {
+    "domain": "medicine",
+    "question": "How is cholera usually spread? Answer in one sentence.",
+    "wrong": "mosquito bites",
+    "correct": "contaminated water",
+    "correct_alts": [
+      "water",
+      "food"
+    ],
+    "wrong_alts": [
+      "mosquito",
+      "mosquitoes"
+    ]
+  },
+  {
+    "domain": "finance",
+    "question": "Which committee of the Federal Reserve sets the target for the federal funds rate? Answer in one sentence.",
+    "wrong": "Financial Stability Oversight Council",
+    "correct": "Federal Open Market Committee",
+    "correct_alts": [
+      "open market committee",
+      "fomc"
+    ],
+    "wrong_alts": [
+      "financial stability oversight",
+      "fsoc"
+    ]
+  },
+  {
+    "domain": "finance",
+    "question": "What is a 529 plan mainly used to save for? Answer in one sentence.",
+    "wrong": "retirement",
+    "correct": "education",
+    "correct_alts": [
+      "education",
+      "college",
+      "tuition",
+      "school"
+    ],
+    "wrong_alts": [
+      "retirement"
+    ]
+  },
+  {
+    "domain": "finance",
+    "question": "After whom is the Ponzi scheme named? Answer in one sentence.",
+    "wrong": "Bernie Madoff",
+    "correct": "Charles Ponzi",
+    "correct_alts": [
+      "charles",
+      "carlo"
+    ],
+    "wrong_alts": [
+      "madoff",
+      "bernie",
+      "bernard"
+    ]
+  },
+  {
+    "domain": "finance",
+    "question": "What kind of financial instrument is the Black-Scholes model used to price? Answer in one sentence.",
+    "wrong": "bonds",
+    "correct": "options",
+    "correct_alts": [
+      "option",
+      "options"
+    ],
+    "wrong_alts": [
+      "bond",
+      "bonds"
+    ]
+  },
+  {
+    "domain": "finance",
+    "question": "What is a payment that a company makes to its shareholders out of its profits called? Answer in one sentence.",
+    "wrong": "coupon",
+    "correct": "dividend",
+    "correct_alts": [
+      "dividend",
+      "dividends"
+    ],
+    "wrong_alts": [
+      "coupon"
+    ]
+  },
+  {
+    "domain": "finance",
+    "question": "Which U.S. agency was created by the Dodd-Frank Act to protect consumers in financial markets? Answer in one sentence.",
+    "wrong": "Federal Trade Commission",
+    "correct": "Consumer Financial Protection Bureau",
+    "correct_alts": [
+      "consumer financial protection",
+      "cfpb"
+    ],
+    "wrong_alts": [
+      "federal trade commission",
+      "ftc"
+    ]
+  },
+  {
+    "domain": "finance",
+    "question": "What does owning a share of common stock represent? Answer in one sentence.",
+    "wrong": "a loan to the company",
+    "correct": "ownership in the company",
+    "correct_alts": [
+      "ownership",
+      "equity",
+      "owner"
+    ],
+    "wrong_alts": [
+      "loan",
+      "debt"
+    ]
+  }
+]
