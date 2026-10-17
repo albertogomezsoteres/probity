@@ -1,0 +1,9 @@
+layer,test,auroc,lo,hi,n_pos,n_neg
+14,"truth, within lie-game prompt (refused vs. lied)",0.6167283950617285,0.538625,0.6980015432098764,81,200
+14,"truth, within truth-game prompt (told truth vs. wrong)",0.8613392857142856,0.8141026785714285,0.9069665178571428,200,56
+14,"PROMPT, true claims only (truth game vs. refused to lie)",0.4810493827160494,0.40293981481481483,0.5529459876543209,200,81
+14,"PROMPT, false claims only (wrong in truth game vs. lied)",0.15455357142857143,0.10166964285714288,0.2172767857142857,56,200
+20,"truth, within lie-game prompt (refused vs. lied)",0.3575308641975309,0.2802978395061728,0.43790740740740747,81,200
+20,"truth, within truth-game prompt (told truth vs. wrong)",0.8577678571428572,0.8049040178571428,0.9044665178571428,200,56
+20,"PROMPT, true claims only (truth game vs. refused to lie)",0.9961111111111112,0.9901219135802469,0.9996296296296296,200,81
+20,"PROMPT, false claims only (wrong in truth game vs. lied)",0.9746428571428571,0.9504375,0.9940290178571429,56,200
