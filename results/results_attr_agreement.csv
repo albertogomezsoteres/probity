@@ -1,0 +1,361 @@
+question,pair,spearman,same_top_word
+negation,Integrated Gradients vs LIME,0.4285714285714286,1
+negation,Integrated Gradients vs KernelSHAP,0.30952380952380953,1
+negation,LIME vs KernelSHAP,0.9285714285714287,1
+negation,Integrated Gradients vs LIME,0.45,0
+negation,Integrated Gradients vs KernelSHAP,0.41666666666666663,1
+negation,LIME vs KernelSHAP,0.8333333333333333,0
+negation,Integrated Gradients vs LIME,0.5952380952380953,1
+negation,Integrated Gradients vs KernelSHAP,0.3571428571428572,1
+negation,LIME vs KernelSHAP,0.8095238095238096,1
+negation,Integrated Gradients vs LIME,0.07142857142857144,1
+negation,Integrated Gradients vs KernelSHAP,0.04761904761904763,1
+negation,LIME vs KernelSHAP,0.8333333333333335,1
+negation,Integrated Gradients vs LIME,0.5952380952380953,1
+negation,Integrated Gradients vs KernelSHAP,0.9047619047619048,1
+negation,LIME vs KernelSHAP,0.7857142857142858,1
+negation,Integrated Gradients vs LIME,0.39999999999999997,1
+negation,Integrated Gradients vs KernelSHAP,0.3666666666666667,1
+negation,LIME vs KernelSHAP,0.9833333333333333,1
+negation,Integrated Gradients vs LIME,0.5000000000000001,1
+negation,Integrated Gradients vs KernelSHAP,0.4761904761904762,1
+negation,LIME vs KernelSHAP,0.9761904761904763,1
+negation,Integrated Gradients vs LIME,0.3333333333333334,1
+negation,Integrated Gradients vs KernelSHAP,0.3333333333333334,1
+negation,LIME vs KernelSHAP,0.8095238095238096,1
+negation,Integrated Gradients vs LIME,0.04761904761904763,1
+negation,Integrated Gradients vs KernelSHAP,0.14285714285714288,1
+negation,LIME vs KernelSHAP,0.7619047619047621,1
+negation,Integrated Gradients vs LIME,0.45,1
+negation,Integrated Gradients vs KernelSHAP,0.45,1
+negation,LIME vs KernelSHAP,1.0,1
+negation,Integrated Gradients vs LIME,0.5714285714285715,1
+negation,Integrated Gradients vs KernelSHAP,0.4285714285714286,1
+negation,LIME vs KernelSHAP,0.8571428571428572,1
+negation,Integrated Gradients vs LIME,0.523809523809524,1
+negation,Integrated Gradients vs KernelSHAP,0.3333333333333334,1
+negation,LIME vs KernelSHAP,0.9285714285714287,1
+negation,Integrated Gradients vs LIME,0.6333333333333333,1
+negation,Integrated Gradients vs KernelSHAP,0.5333333333333333,1
+negation,LIME vs KernelSHAP,0.8166666666666667,1
+negation,Integrated Gradients vs LIME,0.6428571428571429,1
+negation,Integrated Gradients vs KernelSHAP,0.523809523809524,1
+negation,LIME vs KernelSHAP,0.8571428571428572,1
+negation,Integrated Gradients vs LIME,0.3666666666666667,1
+negation,Integrated Gradients vs KernelSHAP,0.3666666666666667,1
+negation,LIME vs KernelSHAP,0.9666666666666667,1
+negation,Integrated Gradients vs LIME,0.04761904761904763,1
+negation,Integrated Gradients vs KernelSHAP,0.04761904761904763,1
+negation,LIME vs KernelSHAP,0.7857142857142858,1
+negation,Integrated Gradients vs LIME,0.4285714285714286,0
+negation,Integrated Gradients vs KernelSHAP,0.3333333333333334,1
+negation,LIME vs KernelSHAP,0.8095238095238096,0
+negation,Integrated Gradients vs LIME,0.0,0
+negation,Integrated Gradients vs KernelSHAP,-0.1666666666666667,0
+negation,LIME vs KernelSHAP,0.880952380952381,1
+negation,Integrated Gradients vs LIME,0.19999999999999998,0
+negation,Integrated Gradients vs KernelSHAP,0.06666666666666667,0
+negation,LIME vs KernelSHAP,0.7,1
+negation,Integrated Gradients vs LIME,0.4523809523809524,0
+negation,Integrated Gradients vs KernelSHAP,0.4285714285714286,0
+negation,LIME vs KernelSHAP,0.9047619047619048,1
+negation,Integrated Gradients vs LIME,0.7142857142857144,1
+negation,Integrated Gradients vs KernelSHAP,0.7380952380952381,1
+negation,LIME vs KernelSHAP,0.6666666666666669,1
+negation,Integrated Gradients vs LIME,0.5476190476190477,0
+negation,Integrated Gradients vs KernelSHAP,0.5476190476190477,1
+negation,LIME vs KernelSHAP,0.9523809523809524,0
+negation,Integrated Gradients vs LIME,-0.19999999999999998,1
+negation,Integrated Gradients vs KernelSHAP,-0.19999999999999998,1
+negation,LIME vs KernelSHAP,0.9,1
+negation,Integrated Gradients vs LIME,0.21666666666666667,0
+negation,Integrated Gradients vs KernelSHAP,0.25,0
+negation,LIME vs KernelSHAP,0.8666666666666667,1
+negation,Integrated Gradients vs LIME,0.39999999999999997,1
+negation,Integrated Gradients vs KernelSHAP,0.5166666666666667,1
+negation,LIME vs KernelSHAP,0.9833333333333333,1
+negation,Integrated Gradients vs LIME,0.39999999999999997,1
+negation,Integrated Gradients vs KernelSHAP,0.3666666666666667,0
+negation,LIME vs KernelSHAP,0.8666666666666667,0
+negation,Integrated Gradients vs LIME,0.523809523809524,1
+negation,Integrated Gradients vs KernelSHAP,0.523809523809524,1
+negation,LIME vs KernelSHAP,0.9285714285714287,1
+negation,Integrated Gradients vs LIME,0.14285714285714288,1
+negation,Integrated Gradients vs KernelSHAP,0.2380952380952381,1
+negation,LIME vs KernelSHAP,0.7380952380952381,1
+negation,Integrated Gradients vs LIME,0.8095238095238096,1
+negation,Integrated Gradients vs KernelSHAP,0.7619047619047621,1
+negation,LIME vs KernelSHAP,0.9761904761904763,1
+negation,Integrated Gradients vs LIME,0.6904761904761906,1
+negation,Integrated Gradients vs KernelSHAP,0.5714285714285715,1
+negation,LIME vs KernelSHAP,0.9285714285714287,1
+negation,Integrated Gradients vs LIME,0.2142857142857143,0
+negation,Integrated Gradients vs KernelSHAP,0.261904761904762,0
+negation,LIME vs KernelSHAP,0.9047619047619048,1
+negation,Integrated Gradients vs LIME,0.6666666666666667,1
+negation,Integrated Gradients vs KernelSHAP,0.38333333333333336,0
+negation,LIME vs KernelSHAP,0.8166666666666667,0
+negation,Integrated Gradients vs LIME,0.7380952380952381,0
+negation,Integrated Gradients vs KernelSHAP,0.4047619047619048,0
+negation,LIME vs KernelSHAP,0.7619047619047621,0
+negation,Integrated Gradients vs LIME,0.3571428571428572,0
+negation,Integrated Gradients vs KernelSHAP,0.38095238095238104,0
+negation,LIME vs KernelSHAP,0.880952380952381,1
+negation,Integrated Gradients vs LIME,-0.3333333333333334,0
+negation,Integrated Gradients vs KernelSHAP,-0.14285714285714288,0
+negation,LIME vs KernelSHAP,0.9285714285714287,1
+negation,Integrated Gradients vs LIME,0.5833333333333334,0
+negation,Integrated Gradients vs KernelSHAP,0.5,0
+negation,LIME vs KernelSHAP,0.9833333333333333,1
+negation,Integrated Gradients vs LIME,-0.28571428571428575,0
+negation,Integrated Gradients vs KernelSHAP,0.0,0
+negation,LIME vs KernelSHAP,0.880952380952381,1
+negation,Integrated Gradients vs LIME,-0.4523809523809524,0
+negation,Integrated Gradients vs KernelSHAP,-0.3333333333333334,0
+negation,LIME vs KernelSHAP,0.880952380952381,1
+negation,Integrated Gradients vs LIME,-0.4523809523809524,1
+negation,Integrated Gradients vs KernelSHAP,-0.5952380952380953,1
+negation,LIME vs KernelSHAP,0.7857142857142858,1
+negation,Integrated Gradients vs LIME,0.13333333333333333,0
+negation,Integrated Gradients vs KernelSHAP,0.08333333333333334,0
+negation,LIME vs KernelSHAP,0.8166666666666667,1
+negation,Integrated Gradients vs LIME,-0.4761904761904762,0
+negation,Integrated Gradients vs KernelSHAP,-0.5476190476190477,0
+negation,LIME vs KernelSHAP,0.9761904761904763,1
+negation,Integrated Gradients vs LIME,0.04761904761904763,1
+negation,Integrated Gradients vs KernelSHAP,-0.07142857142857144,0
+negation,LIME vs KernelSHAP,0.8571428571428572,0
+negation,Integrated Gradients vs LIME,0.049999999999999996,1
+negation,Integrated Gradients vs KernelSHAP,-0.03333333333333333,0
+negation,LIME vs KernelSHAP,0.75,0
+negation,Integrated Gradients vs LIME,-0.14285714285714288,0
+negation,Integrated Gradients vs KernelSHAP,0.04761904761904763,0
+negation,LIME vs KernelSHAP,0.9047619047619048,1
+negation,Integrated Gradients vs LIME,-0.016666666666666666,0
+negation,Integrated Gradients vs KernelSHAP,-0.08333333333333334,0
+negation,LIME vs KernelSHAP,0.9500000000000001,1
+negation,Integrated Gradients vs LIME,0.2380952380952381,0
+negation,Integrated Gradients vs KernelSHAP,-0.3333333333333334,1
+negation,LIME vs KernelSHAP,0.7619047619047621,0
+negation,Integrated Gradients vs LIME,-0.14285714285714288,0
+negation,Integrated Gradients vs KernelSHAP,-0.6190476190476191,1
+negation,LIME vs KernelSHAP,0.7619047619047621,0
+negation,Integrated Gradients vs LIME,0.3571428571428572,0
+negation,Integrated Gradients vs KernelSHAP,-0.04761904761904763,1
+negation,LIME vs KernelSHAP,0.6428571428571429,0
+negation,Integrated Gradients vs LIME,0.16666666666666669,1
+negation,Integrated Gradients vs KernelSHAP,-0.03333333333333333,0
+negation,LIME vs KernelSHAP,0.8333333333333333,0
+negation,Integrated Gradients vs LIME,0.04761904761904763,0
+negation,Integrated Gradients vs KernelSHAP,-0.11904761904761905,0
+negation,LIME vs KernelSHAP,0.9047619047619048,1
+negation,Integrated Gradients vs LIME,0.023809523809523815,1
+negation,Integrated Gradients vs KernelSHAP,0.14285714285714288,0
+negation,LIME vs KernelSHAP,0.880952380952381,0
+negation,Integrated Gradients vs LIME,-0.14285714285714288,0
+negation,Integrated Gradients vs KernelSHAP,-0.4047619047619048,0
+negation,LIME vs KernelSHAP,0.7380952380952381,0
+negation,Integrated Gradients vs LIME,0.5333333333333333,0
+negation,Integrated Gradients vs KernelSHAP,0.39999999999999997,0
+negation,LIME vs KernelSHAP,0.9333333333333332,0
+negation,Integrated Gradients vs LIME,0.8166666666666667,1
+negation,Integrated Gradients vs KernelSHAP,0.6666666666666667,0
+negation,LIME vs KernelSHAP,0.8833333333333333,0
+negation,Integrated Gradients vs LIME,0.5666666666666667,0
+negation,Integrated Gradients vs KernelSHAP,0.5166666666666667,0
+negation,LIME vs KernelSHAP,0.9500000000000001,1
+negation,Integrated Gradients vs LIME,-0.016666666666666666,1
+negation,Integrated Gradients vs KernelSHAP,-0.25,0
+negation,LIME vs KernelSHAP,0.8333333333333333,0
+negation,Integrated Gradients vs LIME,-0.261904761904762,0
+negation,Integrated Gradients vs KernelSHAP,0.07142857142857144,0
+negation,LIME vs KernelSHAP,0.9047619047619048,1
+negation,Integrated Gradients vs LIME,-0.261904761904762,0
+negation,Integrated Gradients vs KernelSHAP,-0.1666666666666667,0
+negation,LIME vs KernelSHAP,0.7857142857142858,1
+negation,Integrated Gradients vs LIME,0.07142857142857144,0
+negation,Integrated Gradients vs KernelSHAP,-0.38095238095238104,0
+negation,LIME vs KernelSHAP,0.7619047619047621,0
+negation,Integrated Gradients vs LIME,-0.07142857142857144,1
+negation,Integrated Gradients vs KernelSHAP,0.261904761904762,0
+negation,LIME vs KernelSHAP,0.9047619047619048,0
+pressure,Integrated Gradients vs LIME,0.12692307692307694,1
+pressure,Integrated Gradients vs KernelSHAP,-0.048631343200431235,1
+pressure,LIME vs KernelSHAP,0.3673403245318288,1
+pressure,Integrated Gradients vs LIME,0.14031620553359686,1
+pressure,Integrated Gradients vs KernelSHAP,0.027277885760701556,1
+pressure,LIME vs KernelSHAP,0.45608624991893,1
+pressure,Integrated Gradients vs LIME,0.2648221343873518,1
+pressure,Integrated Gradients vs KernelSHAP,0.17142426201568284,1
+pressure,LIME vs KernelSHAP,0.5192058583352697,1
+pressure,Integrated Gradients vs LIME,-0.11307692307692309,1
+pressure,Integrated Gradients vs KernelSHAP,-0.16239394961572573,1
+pressure,LIME vs KernelSHAP,0.40381383193215226,1
+pressure,Integrated Gradients vs LIME,-0.12307692307692307,1
+pressure,Integrated Gradients vs KernelSHAP,-0.05731551162907968,1
+pressure,LIME vs KernelSHAP,0.36126140663177486,1
+pressure,Integrated Gradients vs LIME,-0.2756521739130435,1
+pressure,Integrated Gradients vs KernelSHAP,0.16602137362559743,1
+pressure,LIME vs KernelSHAP,0.19757514346671975,1
+pressure,Integrated Gradients vs LIME,-0.26068376068376065,1
+pressure,Integrated Gradients vs KernelSHAP,0.050725109357971636,1
+pressure,LIME vs KernelSHAP,0.5002059395022204,1
+pressure,Integrated Gradients vs LIME,0.04205128205128204,1
+pressure,Integrated Gradients vs KernelSHAP,0.4261392434268624,1
+pressure,LIME vs KernelSHAP,0.004292611426461068,1
+pressure,Integrated Gradients vs LIME,-0.05615384615384616,1
+pressure,Integrated Gradients vs KernelSHAP,0.27268288865956086,1
+pressure,LIME vs KernelSHAP,0.023447254757350777,1
+pressure,Integrated Gradients vs LIME,0.1869565217391304,1
+pressure,Integrated Gradients vs KernelSHAP,0.11844799755744377,1
+pressure,LIME vs KernelSHAP,0.3723344841252434,1
+pressure,Integrated Gradients vs LIME,0.3137973137973138,1
+pressure,Integrated Gradients vs KernelSHAP,0.29448744043933534,1
+pressure,LIME vs KernelSHAP,0.3480306114283054,1
+pressure,Integrated Gradients vs LIME,0.3627350427350427,1
+pressure,Integrated Gradients vs KernelSHAP,0.3828228917598462,1
+pressure,LIME vs KernelSHAP,0.41443212135469587,1
+pressure,Integrated Gradients vs LIME,-0.04136752136752136,1
+pressure,Integrated Gradients vs KernelSHAP,-0.20643558587253683,1
+pressure,LIME vs KernelSHAP,0.3769693307237629,1
+pressure,Integrated Gradients vs LIME,0.07307692307692308,1
+pressure,Integrated Gradients vs KernelSHAP,0.27441972234529055,1
+pressure,LIME vs KernelSHAP,0.2874459749882632,1
+pressure,Integrated Gradients vs LIME,0.2635897435897435,1
+pressure,Integrated Gradients vs KernelSHAP,0.005853561036083275,1
+pressure,LIME vs KernelSHAP,0.3180434829605246,1
+pressure,Integrated Gradients vs LIME,0.2515262515262515,1
+pressure,Integrated Gradients vs KernelSHAP,0.11765407309418423,1
+pressure,LIME vs KernelSHAP,0.45159437636749755,1
+pressure,Integrated Gradients vs LIME,-0.10290093048713739,0
+pressure,Integrated Gradients vs KernelSHAP,0.22380078289818106,0
+pressure,LIME vs KernelSHAP,0.4578178640171065,1
+pressure,Integrated Gradients vs LIME,-0.08648056923918993,1
+pressure,Integrated Gradients vs KernelSHAP,0.15164817671417405,1
+pressure,LIME vs KernelSHAP,0.47314231134822304,1
+pressure,Integrated Gradients vs LIME,0.2087912087912088,1
+pressure,Integrated Gradients vs KernelSHAP,-0.017612885193740154,1
+pressure,LIME vs KernelSHAP,0.3001235637013322,1
+pressure,Integrated Gradients vs LIME,0.40285923753665687,1
+pressure,Integrated Gradients vs KernelSHAP,0.5426079868418251,1
+pressure,LIME vs KernelSHAP,0.4252993961805839,1
+pressure,Integrated Gradients vs LIME,-0.17624521072796934,1
+pressure,Integrated Gradients vs KernelSHAP,0.15899114106033407,1
+pressure,LIME vs KernelSHAP,0.2678585689751411,1
+pressure,Integrated Gradients vs LIME,0.07264957264957266,1
+pressure,Integrated Gradients vs KernelSHAP,0.23108105374187082,1
+pressure,LIME vs KernelSHAP,0.4903427237937259,1
+pressure,Integrated Gradients vs LIME,0.48078817733990137,1
+pressure,Integrated Gradients vs KernelSHAP,0.11443049571428189,1
+pressure,LIME vs KernelSHAP,0.5158085289049863,1
+pressure,Integrated Gradients vs LIME,0.11713191023535852,1
+pressure,Integrated Gradients vs KernelSHAP,-0.09322372126429226,1
+pressure,LIME vs KernelSHAP,0.48463564684656046,1
+pressure,Integrated Gradients vs LIME,-0.0873015873015873,1
+pressure,Integrated Gradients vs KernelSHAP,0.08031475648345511,1
+pressure,LIME vs KernelSHAP,0.5565671721221889,1
+pressure,Integrated Gradients vs LIME,0.2540322580645161,1
+pressure,Integrated Gradients vs KernelSHAP,0.11605771222732296,1
+pressure,LIME vs KernelSHAP,0.6337042445885207,1
+pressure,Integrated Gradients vs LIME,0.14838709677419354,1
+pressure,Integrated Gradients vs KernelSHAP,-0.03579167830047272,1
+pressure,LIME vs KernelSHAP,0.505590596437048,1
+pressure,Integrated Gradients vs LIME,0.10685483870967745,1
+pressure,Integrated Gradients vs KernelSHAP,-0.18744048920396092,1
+pressure,LIME vs KernelSHAP,0.3379755971138777,1
+pressure,Integrated Gradients vs LIME,-0.11932129173508485,1
+pressure,Integrated Gradients vs KernelSHAP,0.038630377647189594,1
+pressure,LIME vs KernelSHAP,0.42908452527126295,1
+pressure,Integrated Gradients vs LIME,-0.030103995621236997,1
+pressure,Integrated Gradients vs KernelSHAP,0.3230904312310403,1
+pressure,LIME vs KernelSHAP,0.5535956598365848,1
+lie,Integrated Gradients vs LIME,0.11529245947850598,0
+lie,Integrated Gradients vs KernelSHAP,0.2845759908714451,0
+lie,LIME vs KernelSHAP,0.203926924632574,0
+lie,Integrated Gradients vs LIME,0.06629663891458526,0
+lie,Integrated Gradients vs KernelSHAP,0.06639917989041356,0
+lie,LIME vs KernelSHAP,0.02016757587405097,0
+lie,Integrated Gradients vs LIME,0.1408403361344538,0
+lie,Integrated Gradients vs KernelSHAP,0.06508842796759338,0
+lie,LIME vs KernelSHAP,0.3163008928266788,1
+lie,Integrated Gradients vs LIME,-0.008448967005858773,0
+lie,Integrated Gradients vs KernelSHAP,-0.03580599275943796,0
+lie,LIME vs KernelSHAP,0.1911646916536103,0
+lie,Integrated Gradients vs LIME,-0.2346938775510204,1
+lie,Integrated Gradients vs KernelSHAP,-0.046791665705579966,0
+lie,LIME vs KernelSHAP,0.3103388416649495,0
+lie,Integrated Gradients vs LIME,0.197286463151403,0
+lie,Integrated Gradients vs KernelSHAP,-0.05050439551510222,0
+lie,LIME vs KernelSHAP,0.23269622502135928,1
+lie,Integrated Gradients vs LIME,0.13216157878507556,0
+lie,Integrated Gradients vs KernelSHAP,-0.21252864914730832,0
+lie,LIME vs KernelSHAP,0.26397305879213323,0
+lie,Integrated Gradients vs LIME,0.25128360012080947,1
+lie,Integrated Gradients vs KernelSHAP,0.09484294963523555,0
+lie,LIME vs KernelSHAP,0.4840049881385247,0
+lie,Integrated Gradients vs LIME,0.192722787542399,0
+lie,Integrated Gradients vs KernelSHAP,0.3342177510314125,0
+lie,LIME vs KernelSHAP,0.07759389361711136,0
+lie,Integrated Gradients vs LIME,0.11332099907493062,0
+lie,Integrated Gradients vs KernelSHAP,0.2311957946400083,0
+lie,LIME vs KernelSHAP,0.20340706181116036,0
+lie,Integrated Gradients vs LIME,0.25081714461917975,0
+lie,Integrated Gradients vs KernelSHAP,0.09998332107050693,0
+lie,LIME vs KernelSHAP,0.09237775220275042,0
+lie,Integrated Gradients vs LIME,0.029910576626580324,1
+lie,Integrated Gradients vs KernelSHAP,-0.17390261399870222,0
+lie,LIME vs KernelSHAP,0.222526981254359,0
+lie,Integrated Gradients vs LIME,0.0025285229725562747,0
+lie,Integrated Gradients vs KernelSHAP,-0.097077822851364,0
+lie,LIME vs KernelSHAP,-0.014612946925689476,0
+lie,Integrated Gradients vs LIME,0.1590816326530612,0
+lie,Integrated Gradients vs KernelSHAP,-0.13243873480415919,0
+lie,LIME vs KernelSHAP,0.39659170367503693,0
+lie,Integrated Gradients vs LIME,0.22072155411655872,0
+lie,Integrated Gradients vs KernelSHAP,-0.15561506638409667,0
+lie,LIME vs KernelSHAP,-0.04982074887530388,0
+lie,Integrated Gradients vs LIME,0.08368794326241134,0
+lie,Integrated Gradients vs KernelSHAP,-0.07118470636900195,0
+lie,LIME vs KernelSHAP,0.03324231786019418,1
+lie,Integrated Gradients vs LIME,0.14893617021276595,1
+lie,Integrated Gradients vs KernelSHAP,0.2575638715440238,0
+lie,LIME vs KernelSHAP,0.33105588532234514,0
+lie,Integrated Gradients vs LIME,0.3164353993216158,0
+lie,Integrated Gradients vs KernelSHAP,0.016407519355160112,0
+lie,LIME vs KernelSHAP,0.21551960319642605,1
+lie,Integrated Gradients vs LIME,0.29201356768424297,0
+lie,Integrated Gradients vs KernelSHAP,0.20936678343824103,0
+lie,LIME vs KernelSHAP,0.341823319899169,1
+lie,Integrated Gradients vs LIME,0.34258402713536845,1
+lie,Integrated Gradients vs KernelSHAP,0.23722538401002327,0
+lie,LIME vs KernelSHAP,0.27311683259943603,0
+lie,Integrated Gradients vs LIME,0.30734948545498747,1
+lie,Integrated Gradients vs KernelSHAP,0.2312917019658686,0
+lie,LIME vs KernelSHAP,0.41929757415482277,0
+lie,Integrated Gradients vs LIME,-0.027247069040382106,0
+lie,Integrated Gradients vs KernelSHAP,0.00741632610039421,0
+lie,LIME vs KernelSHAP,0.34841441277831364,1
+lie,Integrated Gradients vs LIME,0.14782608695652172,0
+lie,Integrated Gradients vs KernelSHAP,0.06998832474935485,0
+lie,LIME vs KernelSHAP,0.08716494657428808,0
+lie,Integrated Gradients vs LIME,-0.2343682153712549,0
+lie,Integrated Gradients vs KernelSHAP,0.09939406113930385,0
+lie,LIME vs KernelSHAP,0.2699695614483707,0
+lie,Integrated Gradients vs LIME,0.3465309898242368,0
+lie,Integrated Gradients vs KernelSHAP,-0.09853057196093547,0
+lie,LIME vs KernelSHAP,-0.016236607695210528,0
+lie,Integrated Gradients vs LIME,0.04212149244526673,0
+lie,Integrated Gradients vs KernelSHAP,0.15082953990550832,0
+lie,LIME vs KernelSHAP,0.30191544730094105,0
+lie,Integrated Gradients vs LIME,0.06654332408263954,0
+lie,Integrated Gradients vs KernelSHAP,0.09024135645338063,0
+lie,LIME vs KernelSHAP,-0.005383717288411912,0
+lie,Integrated Gradients vs LIME,0.11517585757707338,0
+lie,Integrated Gradients vs KernelSHAP,0.0061165576085725456,0
+lie,LIME vs KernelSHAP,0.04273944628990066,0
+lie,Integrated Gradients vs LIME,0.01732963305581252,1
+lie,Integrated Gradients vs KernelSHAP,0.0794739218765568,0
+lie,LIME vs KernelSHAP,0.06973195725943047,0
+lie,Integrated Gradients vs LIME,0.084020842379505,0
+lie,Integrated Gradients vs KernelSHAP,-0.01750864615453891,0
+lie,LIME vs KernelSHAP,0.2009289174416081,0
