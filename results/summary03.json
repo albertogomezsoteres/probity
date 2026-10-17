@@ -1,0 +1,112 @@
+{
+  "model": "google/gemma-2-2b-it",
+  "layers": {
+    "best": 14,
+    "robust": 20
+  },
+  "n_explanations": 120,
+  "share_on_not": {
+    "affirmative_only_L14": {
+      "Integrated Gradients": 0.124,
+      "KernelSHAP": 0.175,
+      "LIME": 0.183
+    },
+    "polygraph_L14": {
+      "Integrated Gradients": 0.121,
+      "KernelSHAP": 0.243,
+      "LIME": 0.358
+    }
+  },
+  "pressure_shares": [
+    {
+      "label": 0,
+      "method": "Integrated Gradients",
+      "answer_word": 0.398,
+      "user_turn": 0.398,
+      "apology_words": 0.0
+    },
+    {
+      "label": 0,
+      "method": "KernelSHAP",
+      "answer_word": 0.625,
+      "user_turn": 0.229,
+      "apology_words": 0.0
+    },
+    {
+      "label": 0,
+      "method": "LIME",
+      "answer_word": 0.39,
+      "user_turn": 0.406,
+      "apology_words": 0.0
+    },
+    {
+      "label": 1,
+      "method": "Integrated Gradients",
+      "answer_word": 0.329,
+      "user_turn": 0.354,
+      "apology_words": 0.086
+    },
+    {
+      "label": 1,
+      "method": "KernelSHAP",
+      "answer_word": 0.367,
+      "user_turn": 0.157,
+      "apology_words": 0.204
+    },
+    {
+      "label": 1,
+      "method": "LIME",
+      "answer_word": 0.277,
+      "user_turn": 0.361,
+      "apology_words": 0.133
+    }
+  ],
+  "lie_shares": {
+    "Integrated Gradients": {
+      "answer_word": 0.122,
+      "user_turn": 0.741
+    },
+    "KernelSHAP": {
+      "answer_word": 0.032,
+      "user_turn": 0.446
+    },
+    "LIME": {
+      "answer_word": 0.041,
+      "user_turn": 0.802
+    }
+  },
+  "deletion_k3_by_method": {
+    "lie": {
+      "Integrated Gradients": -3.17,
+      "KernelSHAP": 4.31,
+      "LIME": 5.25,
+      "random words": -1.11
+    },
+    "negation": {
+      "Integrated Gradients": 7.56,
+      "KernelSHAP": 8.85,
+      "LIME": 8.4,
+      "random words": 5.88
+    },
+    "pressure": {
+      "Integrated Gradients": 14.97,
+      "KernelSHAP": 18.07,
+      "LIME": 19.32,
+      "random words": 2.05
+    }
+  },
+  "agreement": {
+    "Integrated Gradients vs KernelSHAP": {
+      "spearman": 0.13,
+      "same_top_word": 0.48
+    },
+    "Integrated Gradients vs LIME": {
+      "spearman": 0.17,
+      "same_top_word": 0.57
+    },
+    "LIME vs KernelSHAP": {
+      "spearman": 0.58,
+      "same_top_word": 0.64
+    }
+  }
+}
