@@ -22,6 +22,7 @@ SOFTWARE.
 
 ---
 The fonts in assets/fonts (IBM Plex Sans, IBM Plex Mono and Sora) are licensed under the
-SIL Open Font License 1.1. Gemma 2 is released by Google under the Gemma Terms of Use and is
+SIL Open Font License 1.1. The full license texts are in assets/fonts/OFL-IBM-Plex.txt
+and assets/fonts/OFL-Sora.txt. Gemma 2 is released by Google under the Gemma Terms of Use and is
 not included in this repository. The Geometry of Truth datasets are downloaded from
 github.com/saprmarks/geometry-of-truth when the notebooks run.
