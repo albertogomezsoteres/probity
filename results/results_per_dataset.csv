@@ -1,0 +1,10 @@
+dataset,polygraph_auroc,polygraph_acc,ask_model_auroc
+cities,1.0,1.0,1.0
+neg_cities,1.0,0.995,1.0
+sp_en_trans,0.998,0.986,1.0
+neg_sp_en_trans,1.0,0.986,1.0
+larger_than,1.0,1.0,1.0
+smaller_than,1.0,1.0,0.904
+companies_true_false,0.973,0.935,0.923
+counterfact_true_false,0.878,0.79,0.841
+common_claim_true_false,0.844,0.765,0.847

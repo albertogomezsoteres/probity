@@ -1,0 +1,92 @@
+{
+  "model": "google/gemma-2-2b-it",
+  "layer_selected_on_validation": 14,
+  "test_polygraph_auroc": 0.981,
+  "test_polygraph_ci": [
+    0.975,
+    0.987
+  ],
+  "test_polygraph_acc": 0.928,
+  "test_ask_model_auroc": 0.957,
+  "test_ask_model_ci": [
+    0.946,
+    0.966
+  ],
+  "ask_model_true_false_prob_mass": 1.0,
+  "ask_model_top_tokens": {
+    "False": 0.52,
+    "True": 0.48
+  },
+  "n_test": 1444,
+  "pairs": {
+    "cities": 1000,
+    "translations": 348
+  },
+  "pairs_with_bad_labels": 0,
+  "autopsy_at_layer": [
+    {
+      "layer": 14,
+      "probe": "same-domain affirmative",
+      "domain": "cities",
+      "both_correct": 0.768,
+      "neg_correct": 0.771,
+      "flip_rate": 0.77,
+      "corr": -0.672,
+      "auroc_aff": 0.999,
+      "auroc_neg": 0.93,
+      "auroc_neg_lo": 0.913,
+      "auroc_neg_hi": 0.945,
+      "both_lo": 0.742,
+      "both_hi": 0.793
+    },
+    {
+      "layer": 14,
+      "probe": "same-domain affirmative",
+      "domain": "translations",
+      "both_correct": 0.276,
+      "neg_correct": 0.276,
+      "flip_rate": 0.279,
+      "corr": 0.889,
+      "auroc_aff": 1.0,
+      "auroc_neg": 0.011,
+      "auroc_neg_lo": 0.003,
+      "auroc_neg_hi": 0.022,
+      "both_lo": 0.227,
+      "both_hi": 0.325
+    },
+    {
+      "layer": 14,
+      "probe": "full polygraph",
+      "domain": "cities",
+      "both_correct": 0.994,
+      "neg_correct": 0.998,
+      "flip_rate": 0.996,
+      "corr": -0.964,
+      "auroc_aff": 1.0,
+      "auroc_neg": 1.0,
+      "auroc_neg_lo": 1.0,
+      "auroc_neg_hi": 1.0,
+      "both_lo": 0.989,
+      "both_hi": 0.998
+    },
+    {
+      "layer": 14,
+      "probe": "full polygraph",
+      "domain": "translations",
+      "both_correct": 0.98,
+      "neg_correct": 0.986,
+      "flip_rate": 0.989,
+      "corr": -0.913,
+      "auroc_aff": 0.999,
+      "auroc_neg": 0.999,
+      "auroc_neg_lo": 0.996,
+      "auroc_neg_hi": 1.0,
+      "both_lo": 0.963,
+      "both_hi": 0.994
+    }
+  ],
+  "ask_model_auroc_on_negated": {
+    "cities": 1.0,
+    "translations": 0.997
+  }
+}

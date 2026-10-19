@@ -1,0 +1,7 @@
+test_set,condition,trained_on,auroc,acc
+neg_cities,no_not,cities only (never saw 'not'),0.8848,0.805
+neg_cities,others,all other datasets,0.999,0.935
+neg_cities,in_dist,neg_cities itself (upper bound),0.9998,0.995
+neg_sp_en_trans,no_not,sp_en_trans only (never saw 'not'),0.0,0.3142857142857143
+neg_sp_en_trans,others,all other datasets,0.4040816326530612,0.4857142857142857
+neg_sp_en_trans,in_dist,neg_sp_en_trans itself (upper bound),1.0,1.0

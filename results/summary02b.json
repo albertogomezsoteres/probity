@@ -1,0 +1,139 @@
+{
+  "model": "google/gemma-2-2b-it",
+  "layers": [
+    14,
+    20
+  ],
+  "cell_counts": {
+    "false claim": {
+      "lie-game prompt": 200,
+      "truth-game prompt": 56
+    },
+    "true claim": {
+      "lie-game prompt": 81,
+      "truth-game prompt": 200
+    }
+  },
+  "median_reading": {
+    "L14": {
+      "false claim": {
+        "lie-game prompt": -9.91,
+        "truth-game prompt": -15.11
+      },
+      "true claim": {
+        "lie-game prompt": -8.94,
+        "truth-game prompt": -7.89
+      }
+    },
+    "L20": {
+      "false claim": {
+        "lie-game prompt": -0.25,
+        "truth-game prompt": 5.02
+      },
+      "true claim": {
+        "lie-game prompt": -1.3,
+        "truth-game prompt": 8.59
+      }
+    }
+  },
+  "tests": [
+    {
+      "layer": 14,
+      "test": "truth, within lie-game prompt (refused vs. lied)",
+      "auroc": 0.617,
+      "lo": 0.539,
+      "hi": 0.698,
+      "n_pos": 81,
+      "n_neg": 200
+    },
+    {
+      "layer": 14,
+      "test": "truth, within truth-game prompt (told truth vs. wrong)",
+      "auroc": 0.861,
+      "lo": 0.814,
+      "hi": 0.907,
+      "n_pos": 200,
+      "n_neg": 56
+    },
+    {
+      "layer": 14,
+      "test": "PROMPT, true claims only (truth game vs. refused to lie)",
+      "auroc": 0.481,
+      "lo": 0.403,
+      "hi": 0.553,
+      "n_pos": 200,
+      "n_neg": 81
+    },
+    {
+      "layer": 14,
+      "test": "PROMPT, false claims only (wrong in truth game vs. lied)",
+      "auroc": 0.155,
+      "lo": 0.102,
+      "hi": 0.217,
+      "n_pos": 56,
+      "n_neg": 200
+    },
+    {
+      "layer": 20,
+      "test": "truth, within lie-game prompt (refused vs. lied)",
+      "auroc": 0.358,
+      "lo": 0.28,
+      "hi": 0.438,
+      "n_pos": 81,
+      "n_neg": 200
+    },
+    {
+      "layer": 20,
+      "test": "truth, within truth-game prompt (told truth vs. wrong)",
+      "auroc": 0.858,
+      "lo": 0.805,
+      "hi": 0.904,
+      "n_pos": 200,
+      "n_neg": 56
+    },
+    {
+      "layer": 20,
+      "test": "PROMPT, true claims only (truth game vs. refused to lie)",
+      "auroc": 0.996,
+      "lo": 0.99,
+      "hi": 1.0,
+      "n_pos": 200,
+      "n_neg": 81
+    },
+    {
+      "layer": 20,
+      "test": "PROMPT, false claims only (wrong in truth game vs. lied)",
+      "auroc": 0.975,
+      "lo": 0.95,
+      "hi": 0.994,
+      "n_pos": 56,
+      "n_neg": 200
+    }
+  ],
+  "out_of_context": [
+    {
+      "scenario": "Instructed lies",
+      "layer": 14,
+      "auroc_in_context": 0.643,
+      "auroc_alone": 0.962
+    },
+    {
+      "scenario": "Instructed lies",
+      "layer": 20,
+      "auroc_in_context": 0.998,
+      "auroc_alone": 0.982
+    },
+    {
+      "scenario": "Caved to \"I'm sure it's X\"",
+      "layer": 14,
+      "auroc_in_context": 0.999,
+      "auroc_alone": 0.981
+    },
+    {
+      "scenario": "Caved to \"I'm sure it's X\"",
+      "layer": 20,
+      "auroc_in_context": 0.679,
+      "auroc_alone": 0.955
+    }
+  ]
+}
