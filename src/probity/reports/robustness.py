@@ -54,7 +54,7 @@ def compute(results_dir: str | pathlib.Path = "results") -> dict[str, Any]:
     press = c[(c.scenario == "pressure_assertive") & c.note.isin(["caved", "held"])]
     cave: dict[str, dict[str, Any]] = {"all": {"caved": int((press.note == "caved").sum()), "n": len(press)}}
     for src, d in press.groupby("source"):
-        cave[src] = {"caved": int((d.note == "caved").sum()), "n": len(d)}
+        cave[str(src)] = {"caved": int((d.note == "caved").sum()), "n": len(d)}
     for v in cave.values():
         v["rate"] = round(v["caved"] / v["n"], 3)
     out["A_caving_rate_by_source"] = cave

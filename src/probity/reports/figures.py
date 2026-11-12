@@ -105,11 +105,16 @@ def fig_layers():
         color=MUTED,
         fontsize=11,
     )
-    ax.plot(shuf.index, shuf.values, color=LINE, lw=2, label="Same probe, labels shuffled (control)")
+    ax.plot(shuf.index, shuf.to_numpy(), color=LINE, lw=2, label="Same probe, labels shuffled (control)")
     ax.plot(
-        lodo.index, lodo.values, color=FALSE_C, lw=2, alpha=0.85, label="Probe on a dataset it never saw (mean of 9)"
+        lodo.index,
+        lodo.to_numpy(),
+        color=FALSE_C,
+        lw=2,
+        alpha=0.85,
+        label="Probe on a dataset it never saw (mean of 9)",
     )
-    ax.plot(probe.index, probe.values, color=TRUE_C, lw=2.6, label="Probe on held-out statements")
+    ax.plot(probe.index, probe.to_numpy(), color=TRUE_C, lw=2.6, label="Probe on held-out statements")
     lo, hi = s01b["test_polygraph_ci"]
     ax.errorbar(
         [L],
@@ -183,7 +188,7 @@ def fig_shortcut():
     fig, ax = plt.subplots(figsize=(9.2, 4.8))
     rng = np.random.default_rng(0)
     for i, (pt, ct, _) in enumerate(order):
-        v = c[(c.prompt_type == pt) & (c.claim_truth == ct)]["reread_L20"].dropna().values
+        v = c[(c.prompt_type == pt) & (c.claim_truth == ct)]["reread_L20"].dropna().to_numpy()
         y = len(order) - 1 - i
         if pt == "lie-game prompt":
             ax.axhspan(y - 0.45, y + 0.45, color="#F4F6F8", zorder=0, lw=0)
@@ -232,8 +237,8 @@ def fig_context():
     ]:
         m = oc.pivot(index="layer", columns="scenario", values=col)[["Instructed lies", "Gave in to pushback"]]
         cmap = matplotlib.colors.LinearSegmentedColormap.from_list("q", [FALSE_C, "#F4E6E2", "#E3ECF8", TRUE_C])
-        ax.imshow(m.values, cmap=cmap, vmin=0.5, vmax=1.0)
-        for (i, j), v in np.ndenumerate(m.values):
+        ax.imshow(m.to_numpy(), cmap=cmap, vmin=0.5, vmax=1.0)
+        for (i, j), v in np.ndenumerate(m.to_numpy()):
             r, g, b, _ = cmap((v - 0.5) / 0.5)
             ink = "white" if 0.299 * r + 0.587 * g + 0.114 * b < 0.6 else INK
             ax.text(j, i, f"{v:.3f}", ha="center", va="center", fontsize=14, fontweight="semibold", color=ink)

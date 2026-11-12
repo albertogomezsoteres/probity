@@ -82,10 +82,10 @@ def load_statements(cfg: DataConfig, raw_dir: str | pathlib.Path, seed: int = 0)
     # stratified train/test split inside every dataset x label cell
     rng = np.random.default_rng(seed)
     df["split"] = "train"
-    for _, idx in df.groupby(["dataset", "label"]).groups.items():
-        idx = np.array(list(idx))
-        rng.shuffle(idx)
-        df.loc[idx[: round(len(idx) * cfg.test_fraction)], "split"] = "test"
+    for _, cell in df.groupby(["dataset", "label"]).groups.items():
+        rows = np.array(list(cell))
+        rng.shuffle(rows)
+        df.loc[rows[: round(len(rows) * cfg.test_fraction)], "split"] = "test"
     return df.reset_index(drop=True)
 
 
