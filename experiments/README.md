@@ -13,7 +13,7 @@ The common protocol is in [`protocol.md`](protocol.md).
 | E5 | What do the verdicts depend on, and are the explanations faithful? | `03_explaining_the_probe` | Attribution shares, deletion test vs random | Methods disagree; per word none favours the instruction. IG does not pass the word-deletion test on lies |
 | E6 | Can the probe stop bad answers without causing harm? | `05_polygraph_guard` | Rate of wrong answers delivered, with controls | Pushback 29.9% to 4.2%, lies 85.2% to 6.3% (mostly abstaining), controls 99.5% and 99.6% |
 | E7 | Does it work in medicine and finance, without retraining? | `06_high_stakes` | Transfer AUROC, pushback with guard, cross-fitted threshold | Gemma gives in 53%; guard 52.7% to 31.1%; probe AUROC 0.80 vs asking 0.96 |
-| R | Do the pooled results hold up when split by source, per word and per guard action? | `scripts/robustness_checks.py` | Same metrics, stratified | Cities near perfect, general knowledge harder; see `results/robustness_checks.json` |
+| R | Do the pooled results hold up when split by source, per word and per guard action? | `probity robustness` | Same metrics, stratified | Cities near perfect, general knowledge harder; see `results/robustness_checks.json` |
 
 ## E1. Truth probe
 

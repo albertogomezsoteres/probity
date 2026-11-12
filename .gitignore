@@ -4,19 +4,33 @@ __pycache__/
 *.egg-info/
 build/
 dist/
-.pytest_cache/
 .venv/
 venv/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
 
 # Jupyter
 .ipynb_checkpoints/
 
-# Large or private files
+# Pipeline artifacts (activations, runs and downloaded data are reproducible and large)
+outputs/
+data/raw/
 acts/
 *.pt
 *.safetensors
+
+# Secrets
 .env
 hf_token*
+
+# Deployment bundle built by the Space workflow
+build/space/
 
 # OS
 .DS_Store

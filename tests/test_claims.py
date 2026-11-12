@@ -1,4 +1,5 @@
 """Tests for the sentence splitting and claim cleaning."""
+
 from probity.claims import claim_of, facts_of, is_checkable, split_claims
 
 
@@ -23,5 +24,7 @@ def test_non_claims_are_skipped():
 
 
 def test_facts_of_keeps_only_facts():
-    assert facts_of("Great question! Anyang-si is located in South Korea. Let me know if you need more.") == \
-        "Anyang-si is located in South Korea."
+    assert (
+        facts_of("Great question! Anyang-si is located in South Korea. Let me know if you need more.")
+        == "Anyang-si is located in South Korea."
+    )
