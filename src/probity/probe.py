@@ -51,7 +51,8 @@ class Probe:
 
     def p_true(self, X: np.ndarray) -> np.ndarray:
         """Calibrated probability that the model treats each claim as true."""
-        return 1 / (1 + np.exp(-(self.platt_a * self.score(X) + self.platt_c)))
+        with np.errstate(over="ignore"):  # exp overflows to inf for very confident readings, giving exactly 0
+            return 1 / (1 + np.exp(-(self.platt_a * self.score(X) + self.platt_c)))
 
     def familiar(self, X: np.ndarray) -> np.ndarray:
         """False for claims that are far from the training statements (the reading is less reliable)."""

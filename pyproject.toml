@@ -64,6 +64,9 @@ dev = [
 ]
 all = ["probity[pipeline,model,explain,reports,app]"]
 
+[project.scripts]
+probity = "probity.cli:main"
+
 [project.urls]
 Repository = "https://github.com/albertogomezsoteres/probity"
 Issues = "https://github.com/albertogomezsoteres/probity/issues"

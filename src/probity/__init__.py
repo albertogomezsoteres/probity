@@ -9,4 +9,4 @@ from .polygraph import ABSTAIN, DEFAULT_TAU, Polygraph
 from .probe import Probe
 
 __all__ = ["ABSTAIN", "DEFAULT_TAU", "Polygraph", "Probe", "claim_of", "split_claims"]
-__version__ = "1.0.0"
+__version__ = "1.1.0"
