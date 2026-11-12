@@ -3,7 +3,7 @@ name: Deploy to Hugging Face Spaces
 # Publishes the app to a Hugging Face Space on every push to main that changes the app or what it reads.
 # Setup (once): create a Gradio Space with ZeroGPU hardware, then in this repository add
 #   - the secret   HF_TOKEN     (a Hugging Face token with write access to the Space)
-#   - the variable HF_SPACE_ID  (for example albertogomezsoteres/probity)
+#   - the variable HF_SPACE_ID  (for example alexalber/probity)
 # and add a read token with access to google/gemma-2-2b-it as the Space secret HF_TOKEN.
 
 on:

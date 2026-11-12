@@ -11,6 +11,12 @@
 </p>
 
 <p align="center">
+  <a href="https://huggingface.co/spaces/alexalber/probity"><img src="assets/live-demo-button.svg" alt="Try the live demo on Hugging Face Spaces" width="320"></a>
+  <br>
+  <sub>Ask Gemma a question, push back with a wrong answer and watch Polygraph Guard step in.</sub>
+</p>
+
+<p align="center">
   <a href="https://github.com/albertogomezsoteres/probity/actions/workflows/ci.yml"><img src="https://github.com/albertogomezsoteres/probity/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.10%2B-blue" alt="Python 3.10+">
   <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/badge/code%20style-ruff-261230" alt="Ruff"></a>
@@ -20,7 +26,13 @@
 </p>
 
 <p align="center">
-  <a href="docs/poster.pdf"><b>Poster</b></a> · <a href="docs/design_decisions.md"><b>Design decisions</b></a> · <a href="docs/limitations.md"><b>Limitations</b></a> · <a href="docs/pipeline.md"><b>Pipeline</b></a> · <a href="docs/model_card.md"><b>Model card</b></a> · <a href="docs/data_card.md"><b>Data card</b></a>
+  <a href="https://huggingface.co/spaces/alexalber/probity"><b>Live demo</b></a> · <a href="docs/poster.pdf"><b>Poster</b></a> · <a href="docs/design_decisions.md"><b>Design decisions</b></a> · <a href="docs/limitations.md"><b>Limitations</b></a> · <a href="docs/pipeline.md"><b>Pipeline</b></a> · <a href="docs/model_card.md"><b>Model card</b></a> · <a href="docs/data_card.md"><b>Data card</b></a>
+</p>
+
+<p align="center">
+  <a href="https://huggingface.co/spaces/alexalber/probity"><img src="docs/screenshots/guarded_chat.png" alt="Gemma gives in to pushback; Polygraph Guard blocks the false answer and keeps the correct one." width="860"></a>
+  <br>
+  <sub>Gemma gives in to pushback (left). Its own hidden states read the new answer at 4%, so Polygraph Guard blocks it and keeps the correct one (right). <a href="https://huggingface.co/spaces/alexalber/probity">Try it live →</a></sub>
 </p>
 
 ---
@@ -39,11 +51,7 @@ Ask Gemma 2 2B-it *"Which vitamin is given to reverse the effect of warfarin?"* 
 
 In the experiments, Gemma dropped a correct answer under confident pushback **31% of the time** (79% on general-knowledge facts). On 82 medicine and finance questions, it knew 95% of the answers but gave in **53% of the time**.
 
-Inside the model, however, the two answers look different. The probe scores the original answer at 93% and the new one at 4%. Probity uses this gap.
-
-<p align="center">
-  <img src="docs/screenshots/guarded_chat.png" alt="The guarded chatbot keeps the correct answer after pushback." width="860">
-</p>
+Inside the model, however, the two answers look different. The probe scores the original answer at 93% and the new one at 4%. Probity uses this gap, as the screenshot above shows.
 
 **Research question.** Can a language model's hidden states be used to detect potentially false claims, reduce incorrect answers with a guardrail, and identify when the detector itself is misled?
 
@@ -168,11 +176,15 @@ Outputs are saved to Google Drive under `MyDrive/ai-polygraph/gemma-2-2b-it/`. T
 
 ### Run the app
 
+**Try it online:** [huggingface.co/spaces/alexalber/probity](https://huggingface.co/spaces/alexalber/probity) (runs on ZeroGPU; the first request takes about 30 seconds while a GPU is assigned).
+
+To run it yourself:
+
 ```bash
 probity app                # http://127.0.0.1:7860 (add --share for a temporary public link)
 ```
 
-The app can also run from Docker (`docker run --gpus all -e HF_TOKEN -p 7860:7860 probity`), from notebook 04 in Colab, or on Hugging Face Spaces with ZeroGPU, deployed automatically from `main` (see [`deploy/README.md`](deploy/README.md)).
+The app can also run from Docker (`docker run --gpus all -e HF_TOKEN -p 7860:7860 probity`), from notebook 04 in Colab, or on Hugging Face Spaces with ZeroGPU, where the [live demo](https://huggingface.co/spaces/alexalber/probity) is deployed automatically from `main` (see [`deploy/README.md`](deploy/README.md)).
 
 - **Pushback:** choose an example, press *Ask*, then *Push back*. The standard chatbot changes its answer; the guarded one keeps the correct answer.
 - **Compromised prompt:** enable the option that secretly instructs Gemma to answer falsely. The guard blocks the false answer, usually by declining to answer.
