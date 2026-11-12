@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use Probity, please cite it as below."
+title: "Probity: a white-box polygraph and guardrail for open language models"
+type: software
+authors:
+  - family-names: "Gomez Soteres"
+    given-names: "Alberto"
+    affiliation: "Duke University"
+version: "1.1.0"
+date-released: "2026-11-12"
+license: MIT
+repository-code: "https://github.com/albertogomezsoteres/probity"
+keywords:
+  - interpretability
+  - probing
+  - guardrails
+  - explainable AI
+  - large language models

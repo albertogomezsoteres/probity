@@ -26,7 +26,7 @@ Every file here was written by a notebook (or by `probity robustness`) and is us
 | `results_attr_deletion.csv` | 03 | Deletion test per method and k |
 | `results_attr_agreement.csv` | 03 | Spearman agreement between methods |
 | `summary03.json` | 03 | Main numbers of notebook 03 |
-| `app_probes.npz` | 04 | Calibrated probes at every layer and the data for the familiarity test (PCA basis, test distances) |
+| `app_probes.npz` | 04 (or `probity train --publish`) | Calibrated probes at every layer and the data for the familiarity test (PCA basis, test distances) |
 | `guard_test_conversations.jsonl` | 05 | Every test conversation with the unguarded and guarded answer |
 | `guard_threshold_sweep.csv` | 05 | τ sweep on development subjects |
 | `guard_examples.json` | 05 | Example conversations for the app |

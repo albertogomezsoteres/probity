@@ -13,12 +13,14 @@
 <p align="center">
   <a href="https://github.com/albertogomezsoteres/probity/actions/workflows/ci.yml"><img src="https://github.com/albertogomezsoteres/probity/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.10%2B-blue" alt="Python 3.10+">
+  <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/badge/code%20style-ruff-261230" alt="Ruff"></a>
+  <img src="https://img.shields.io/badge/types-mypy-2a6db2" alt="Checked with mypy">
   <img src="https://img.shields.io/badge/model-Gemma%202%202B--it-orange" alt="Gemma 2 2B-it">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license">
 </p>
 
 <p align="center">
-  <a href="docs/poster.pdf"><b>Poster</b></a> · <a href="docs/design_decisions.md"><b>Design decisions</b></a> · <a href="docs/limitations.md"><b>Limitations</b></a>
+  <a href="docs/poster.pdf"><b>Poster</b></a> · <a href="docs/design_decisions.md"><b>Design decisions</b></a> · <a href="docs/limitations.md"><b>Limitations</b></a> · <a href="docs/pipeline.md"><b>Pipeline</b></a> · <a href="docs/model_card.md"><b>Model card</b></a> · <a href="docs/data_card.md"><b>Data card</b></a>
 </p>
 
 ---
@@ -29,7 +31,7 @@ Language models often abandon a correct answer when a user pushes back with conf
 
 **Probity** addresses this problem from inside the model. It trains a linear probe on the hidden states of Gemma 2 2B-it to score each claim the model makes as likely true or likely false, and it uses that score in a guardrail that can block a claim before it reaches the user. The project also stress-tests its own detector: it looks for shortcuts the probe may have learned and checks whether standard explainability methods would have revealed them.
 
-The repository contains the research experiments (six notebooks, saved with their outputs), a working Gradio app, and a small Python package with unit tests.
+The repository contains the research experiments (notebooks saved with their outputs), a reproducible training pipeline behind one command-line tool, the `probity` Python package, and a Gradio app that can be deployed to Hugging Face Spaces.
 
 ## Motivation
 
@@ -54,7 +56,7 @@ Inside the model, however, the two answers look different. The probe scores the 
 | **Monitor** | Audits a log of answers and flags the claims with low scores. |
 | **Explain** | Shows which words drove a verdict (LIME, KernelSHAP or Integrated Gradients) and runs a deletion test on every explanation. |
 
-All four modules are available in the **Probity app** (notebook 04). The Polygraph and the Guard are also available as the **`probity` Python package**.
+All four modules are available in the **Probity app** (`probity app`). The Polygraph and the Guard are also available as the **`probity` Python package**, and the whole training and evaluation pipeline runs from the **`probity` command line**.
 
 ## Method
 
@@ -100,25 +102,51 @@ The full set of figures is in [`figures/`](figures). Each experiment is describe
 
 ## Getting started
 
-### View the results
+### Install
 
-Every notebook is saved with its outputs and can be read directly on GitHub. No setup is required.
-
-### Run the tests and rebuild the figures (no GPU)
-
-Requires Python 3.10 or newer.
+Requires Python 3.10 or newer. The dependencies are locked in [`uv.lock`](uv.lock).
 
 ```bash
 git clone https://github.com/albertogomezsoteres/probity.git
 cd probity
-python -m venv .venv && source .venv/bin/activate
-pip install -e ".[pipeline,reports,explain,app,dev]"
-pytest                               # unit tests with a fake model
-probity figures                      # rebuilds figures/ from results/
-probity robustness                   # re-checks the main results
+uv sync --extra pipeline --extra reports --extra explain --extra app --extra dev   # or: make install
 ```
 
-### Reproduce the experiments (Google Colab, A100 GPU)
+With pip instead of [uv](https://docs.astral.sh/uv/): `pip install -e ".[pipeline,reports,explain,app,dev]"`. Add the `model` extra (PyTorch and Transformers) on a machine with a GPU, or use `".[all]"` for everything.
+
+### View the results
+
+Every notebook is saved with its outputs and can be read directly on GitHub. No setup is required.
+
+### Check the project without a GPU
+
+```bash
+make check            # ruff, mypy and the test suite (the tests use a fake model)
+probity data          # downloads the datasets, verifies their checksums and rebuilds results/statements.csv exactly
+probity figures       # rebuilds figures/ from results/
+probity robustness    # re-runs the robustness checks on results/
+```
+
+### Reproduce the pipeline (GPU)
+
+Accept the Gemma license on Hugging Face ([google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it)) and log in with `hf auth login` (or set `HF_TOKEN`). Then:
+
+```bash
+probity run                          # data -> hidden states -> probes -> evaluation, then compares with results/
+probity train --set probe.C=0.05     # any setting in configs/default.yaml can be overridden
+```
+
+| Stage | Command | GPU | Output |
+|---|---|---|---|
+| Data | `probity data` | no | 7,696 statements with fact-grouped train / validation / test splits |
+| Hidden states | `probity extract` | yes | last-token activations at every layer (cached) |
+| Probes and evaluation | `probity train` | for the baseline | layer chosen on validation, test AUROC with 95% intervals, calibrated probes (`app_probes.npz`) |
+
+Every stage records a run in `outputs/runs/<run_id>/`: the resolved config, metrics, log, git commit, data version and software and hardware versions. The full description is in [`docs/pipeline.md`](docs/pipeline.md).
+
+### Reproduce every experiment (Google Colab, A100 GPU)
+
+The pipeline covers the probe and its evaluation (notebooks 01b and 04). The research experiments, including red-teaming, explanations and the guard, are in the notebooks:
 
 1. Accept the Gemma license on Hugging Face: [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it).
 2. Create a Hugging Face read token and add it in Colab as the secret `HF_TOKEN`. Do not paste the token into a notebook.
@@ -140,7 +168,11 @@ Outputs are saved to Google Drive under `MyDrive/ai-polygraph/gemma-2-2b-it/`. T
 
 ### Run the app
 
-Run `04_probity_app.ipynb` in Colab and open the public link printed at the end.
+```bash
+probity app                # http://127.0.0.1:7860 (add --share for a temporary public link)
+```
+
+The app can also run from Docker (`docker run --gpus all -e HF_TOKEN -p 7860:7860 probity`), from notebook 04 in Colab, or on Hugging Face Spaces with ZeroGPU, deployed automatically from `main` (see [`deploy/README.md`](deploy/README.md)).
 
 - **Pushback:** choose an example, press *Ask*, then *Push back*. The standard chatbot changes its answer; the guarded one keeps the correct answer.
 - **Compromised prompt:** enable the option that secretly instructs Gemma to answer falsely. The guard blocks the false answer, usually by declining to answer.
@@ -162,18 +194,39 @@ messages = [{"role": "user", "content": "In which country is the city of Anyang-
 reply, report = poly.guarded_reply(messages)  # report["action"]: "passed", "replaced" or "abstained"
 ```
 
+The same checks are available from the command line: `probity check "Anyang-si is located in Iraq."` and `probity audit answers.csv`.
+
+## Reproducibility and engineering
+
+- **Data.** The datasets are pinned to one commit of The Geometry of Truth and verified with SHA-256 checksums; `probity data` rebuilds `results/statements.csv` byte for byte.
+- **No leakage.** Splits, folds and confidence intervals are drawn over facts, and the data stage fails if a fact appears in two splits.
+- **Configuration.** Every setting lives in [`configs/default.yaml`](configs/default.yaml), backed by typed dataclasses; unknown keys fail loudly.
+- **Run records.** Seeds are set for Python, NumPy and PyTorch, and every run stores its config, metrics, git commit and environment. Weights & Biases is optional (`--set tracking.wandb=true`).
+- **Environment.** Dependencies are locked in `uv.lock`, and the [`Dockerfile`](Dockerfile) rebuilds the same environment.
+- **Quality.** Ruff, mypy and pre-commit hooks; CI runs lint, type checks and the tests on Python 3.10 to 3.12. The tests cover the data stage, the probe maths, the metrics, the reports and the whole app on a fake model.
+- **Deployment.** A GitHub Actions workflow publishes the app to Hugging Face Spaces on every push to `main`.
+
 ## Repository structure
 
 ```
 probity/
-├── notebooks/       # experiments 01 to 06 and the app (04), saved with outputs
-├── src/probity/     # Python package
-├── results/         # all outputs and trained probes (see results/README.md)
-├── figures/         # final figures (PNG and SVG)
-├── experiments/     # description of each experiment and the evaluation protocol
-├── docs/            # design decisions, limitations, screenshots and poster
-├── tests/           # unit tests (no GPU required)
-└── assets/          # logo and fonts
+├── src/probity/          # the Python package
+│   ├── claims.py, probe.py, polygraph.py   # the polygraph and the guard (runtime)
+│   ├── config.py, tracking.py              # configuration, seeding and run records
+│   ├── data.py, activations.py             # datasets, splits and hidden states
+│   ├── training.py, evaluation.py          # probes, calibration and metrics
+│   ├── pipeline.py, cli.py                 # pipeline stages and the `probity` command
+│   ├── reports/                            # figures and robustness checks (no GPU)
+│   └── app/                                # the Gradio app
+├── configs/              # default.yaml: every setting behind the published results
+├── notebooks/            # experiments 01 to 06 and the original app (04), saved with outputs
+├── results/              # all outputs and trained probes (see results/README.md)
+├── figures/              # final figures (PNG and SVG)
+├── experiments/          # description of each experiment and the evaluation protocol
+├── docs/                 # pipeline, model and data cards, design decisions, limitations, poster
+├── deploy/               # Hugging Face Space and deployment notes
+├── tests/                # unit and integration tests (no GPU required)
+└── assets/               # logo and fonts
 ```
 
 ## Limitations
@@ -210,6 +263,10 @@ The complete discussion, including failure modes, misuse risks and stakeholders,
 - Samek, W., et al. (2017). *Evaluating the Visualization of What a Deep Neural Network Has Learned.* IEEE TNNLS.
 - Platt, J. (1999). *Probabilistic Outputs for Support Vector Machines and Comparisons to Regularized Likelihood Methods.*
 - Gemma Team (2024). *Gemma 2: Improving Open Language Models at a Practical Size.* arXiv:2408.00118.
+
+## Citation
+
+If you use Probity, please cite it with the metadata in [`CITATION.cff`](CITATION.cff).
 
 ## License
 
