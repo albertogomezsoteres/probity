@@ -3,6 +3,7 @@
 Usage (needs a GPU and access to google/gemma-2-2b-it on Hugging Face):
     python scripts/check_claims.py "Anyang-si is located in Iraq." "The Spanish word 'uno' means 'one'."
 """
+
 import argparse
 import pathlib
 import sys

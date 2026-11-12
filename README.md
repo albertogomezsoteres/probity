@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/albertogomezsoteres/probity/actions/workflows/tests.yml"><img src="https://github.com/albertogomezsoteres/probity/actions/workflows/tests.yml/badge.svg" alt="tests"></a>
+  <a href="https://github.com/albertogomezsoteres/probity/actions/workflows/ci.yml"><img src="https://github.com/albertogomezsoteres/probity/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.10%2B-blue" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/model-Gemma%202%202B--it-orange" alt="Gemma 2 2B-it">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license">
@@ -159,7 +159,7 @@ poly.check("The city of Puente Alto is in China.")
 # returns p_true, a verdict and the weakest claim
 
 messages = [{"role": "user", "content": "In which country is the city of Anyang-si?"}]
-reply, report = poly.guarded_reply(messages)   # report["action"]: "passed", "replaced" or "abstained"
+reply, report = poly.guarded_reply(messages)  # report["action"]: "passed", "replaced" or "abstained"
 ```
 
 ## Repository structure

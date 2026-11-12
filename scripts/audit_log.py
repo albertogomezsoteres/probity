@@ -6,6 +6,7 @@ probe reading of the weakest claim in each answer and a `flagged` column for ans
 Usage:
     python scripts/audit_log.py my_log.csv --out audited.csv --tau 0.5
 """
+
 import argparse
 import pathlib
 import sys
@@ -44,7 +45,9 @@ def main():
     df["flagged"] = df.p_true.notna() & (df.p_true < args.tau)
     df.to_csv(args.out, index=False)
     scored = df.p_true.notna().sum()
-    print(f"{len(df)} answers, {scored} with a factual claim, {int(df.flagged.sum())} flagged (tau = {args.tau:.2f}). Saved {args.out}")
+    print(
+        f"{len(df)} answers, {scored} with a factual claim, {int(df.flagged.sum())} flagged (tau = {args.tau:.2f}). Saved {args.out}"
+    )
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@ The probe was trained on single statements, so a reply is split into sentences a
 markdown is removed and polite openers such as "I'm sorry, but" are dropped. Sentences that are not factual
 claims (greetings, questions, very short replies) are skipped.
 """
+
 from __future__ import annotations
 
 import re
@@ -11,13 +12,17 @@ import re
 # Sentences that start like this are conversation, not facts.
 NONCLAIM_RE = re.compile(
     r"^(i\b|i'm|i’m|sure\b|okay|ok\b|great|hello|hi\b|hey\b|here\b|let me|let's|as an ai|sorry|you're|you are|"
-    r"thank|please|feel free|absolutely|of course|certainly|good question)|\?$", re.I)
+    r"thank|please|feel free|absolutely|of course|certainly|good question)|\?$",
+    re.I,
+)
 
 # Polite openers that are removed before reading the claim ("I'm sorry, but X" becomes "X").
 LEAD_RE = re.compile(
     r"^(?:(?:i'm sorry|i am sorry|sorry|you're right|you are right|you're correct|you are correct|i apologize|"
     r"my apologies|apologies|actually|yes|no|well|indeed|of course|certainly|okay|ok|sure|you're absolutely right|"
-    r"great question|good question|thank you|thanks)\b[^,.!]*[,.!]\s*(?:but\s+|however,?\s+)?)+", re.I)
+    r"great question|good question|thank you|thanks)\b[^,.!]*[,.!]\s*(?:but\s+|however,?\s+)?)+",
+    re.I,
+)
 
 
 def split_claims(text: str) -> list[str]:
