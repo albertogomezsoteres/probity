@@ -112,10 +112,10 @@ Requires Python 3.10 or newer.
 git clone https://github.com/albertogomezsoteres/probity.git
 cd probity
 python -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
+pip install -e ".[pipeline,reports,explain,app,dev]"
 pytest                               # unit tests with a fake model
-python scripts/make_figures.py       # rebuilds figures/ from results/
-python scripts/robustness_checks.py  # re-checks the main results
+probity figures                      # rebuilds figures/ from results/
+probity robustness                   # re-checks the main results
 ```
 
 ### Reproduce the experiments (Google Colab, A100 GPU)
@@ -168,7 +168,6 @@ reply, report = poly.guarded_reply(messages)  # report["action"]: "passed", "rep
 probity/
 ├── notebooks/       # experiments 01 to 06 and the app (04), saved with outputs
 ├── src/probity/     # Python package
-├── scripts/         # figures, robustness checks and command-line tools
 ├── results/         # all outputs and trained probes (see results/README.md)
 ├── figures/         # final figures (PNG and SVG)
 ├── experiments/     # description of each experiment and the evaluation protocol

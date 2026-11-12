@@ -1,6 +1,6 @@
 # Results
 
-Every file here was written by a notebook (or by `scripts/robustness_checks.py`) and is used as is by `scripts/make_figures.py`, the README and the app. Nothing was edited by hand. Some JSON summaries (for example `summary02.json`) contain `NaN` where a metric is undefined, such as an AUROC for a scenario with almost no false claims. Python's `json` module reads these files without problems; strict JSON parsers need `NaN` replaced by `null`.
+Every file here was written by a notebook (or by `probity robustness`) and is used as is by `probity figures`, the README and the app. Nothing was edited by hand. Some JSON summaries (for example `summary02.json`) contain `NaN` where a metric is undefined, such as an AUROC for a scenario with almost no false claims. Python's `json` module reads these files without problems; strict JSON parsers need `NaN` replaced by `null`.
 
 | File | Notebook | Content |
 |---|---|---|
@@ -36,4 +36,4 @@ Every file here was written by a notebook (or by `scripts/robustness_checks.py`)
 | `high_stakes_conversations.jsonl` | 06 | Every verifiable conversation with the unguarded and guarded answer |
 | `demo_cases_highstakes.json` | 06 | Cases where Gemma gave in and the guard restored the answer (candidates for the app) |
 | `summary06.json` | 06 | Transfer, guard results by domain, cross-fitted threshold and the trade-off table |
-| `robustness_checks.json` | `scripts/robustness_checks.py` | Main results split by source, attribution per word, and what the guard did in each scenario |
+| `robustness_checks.json` | `probity robustness` | Main results split by source, attribution per word, and what the guard did in each scenario |

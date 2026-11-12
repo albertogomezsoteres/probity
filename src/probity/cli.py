@@ -119,6 +119,24 @@ def cmd_audit(args: argparse.Namespace) -> int:
     return 0
 
 
+# ---------- reports (no GPU) ----------
+def cmd_figures(args: argparse.Namespace) -> int:
+    from .reports.figures import generate
+
+    cfg = _config(args)
+    names = generate(cfg.results_dir, args.out, args.fonts)
+    print(f"{len(names)} figures in {args.out}/")
+    return 0
+
+
+def cmd_robustness(args: argparse.Namespace) -> int:
+    from .reports.robustness import run
+
+    cfg = _config(args)
+    run(cfg.results_dir, write=not args.no_write)
+    return 0
+
+
 def cmd_info(args: argparse.Namespace) -> int:
     import json
 
@@ -174,6 +192,11 @@ def build_parser() -> argparse.ArgumentParser:
             p.add_argument("--tau", type=float, default=None, help="flag answers below this probability")
             p.add_argument("--max-rows", type=int, default=None)
 
+    p = add("figures", "Rebuild the README and poster figures from results/ (no GPU).", cmd_figures)
+    p.add_argument("--out", default="figures", help="output directory")
+    p.add_argument("--fonts", default="assets/fonts", help="directory with the IBM Plex fonts")
+    p = add("robustness", "Re-run the robustness checks on results/ (no GPU).", cmd_robustness)
+    p.add_argument("--no-write", action="store_true", help="print the report without updating robustness_checks.json")
     add("info", "Print the resolved config and the software, hardware and git versions.", cmd_info)
     return parser
 

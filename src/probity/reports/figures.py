@@ -1,18 +1,19 @@
 """Make the final figures for the README and the poster from the saved results.
 
-Usage:
-    python scripts/make_figures.py
+Usage::
 
-Reads only files in results/ (written by the notebooks) and writes PNG and SVG files to figures/.
-No model is needed, so this runs on any laptop in a few seconds.
+    probity figures          # reads results/, writes PNG and SVG files to figures/
+
+Reads only the files in ``results/`` and needs no model, so it runs on any laptop in a few seconds.
 """
+
+from __future__ import annotations
 
 import json
 import pathlib
+from typing import Any
 
 import matplotlib
-
-matplotlib.use("Agg")
 import matplotlib.lines
 import matplotlib.patches
 import matplotlib.pyplot as plt
@@ -20,63 +21,70 @@ import numpy as np
 import pandas as pd
 from matplotlib import font_manager
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-RES, FIG = ROOT / "results", ROOT / "figures"
-FIG.mkdir(exist_ok=True)
+from ..tracking import get_logger
+
+log = get_logger("figures")
+
+# Set by generate(): where to read results and write figures, and the loaded summaries.
+RES = pathlib.Path("results")
+FIG = pathlib.Path("figures")
+s01: dict[str, Any] = {}
+s01b: dict[str, Any] = {}
+s02b: dict[str, Any] = {}
+s03: dict[str, Any] = {}
+s05: dict[str, Any] = {}
+L = 14
 
 # ---------- style ----------
-for f in (ROOT / "assets" / "fonts").glob("*.ttf"):
-    font_manager.fontManager.addfont(str(f))
 INK, MUTED, FAINT, GRID, LINE = "#15212C", "#56636F", "#8994A0", "#E7EBEE", "#CDD4DA"
 TRUE_C, FALSE_C, NEUTRAL, SOFT_T, SOFT_F = "#1F5FBF", "#D2452B", "#9AA5B1", "#DCE7F7", "#F8DDD7"
-plt.rcParams.update(
-    {
-        "font.family": "IBM Plex Sans",
-        "font.size": 12,
-        "text.color": INK,
-        "axes.titlesize": 14,
-        "axes.titleweight": "semibold",
-        "axes.titlelocation": "left",
-        "axes.titlepad": 14,
-        "axes.labelcolor": MUTED,
-        "axes.labelsize": 12,
-        "axes.edgecolor": LINE,
-        "axes.linewidth": 1,
-        "axes.spines.top": False,
-        "axes.spines.right": False,
-        "axes.grid": True,
-        "grid.color": GRID,
-        "grid.linewidth": 1,
-        "xtick.color": MUTED,
-        "ytick.color": MUTED,
-        "xtick.labelsize": 11,
-        "ytick.labelsize": 11,
-        "legend.frameon": False,
-        "legend.fontsize": 11,
-        "figure.facecolor": "white",
-        "axes.facecolor": "white",
-        "savefig.facecolor": "white",
-        "svg.fonttype": "path",
-        "svg.hashsalt": "probity",
-    }
-)
+
+
+def _apply_style(fonts_dir: pathlib.Path) -> None:
+    for f in fonts_dir.glob("*.ttf"):
+        font_manager.fontManager.addfont(str(f))
+    plt.rcParams.update(
+        {
+            "font.family": "IBM Plex Sans",
+            "font.size": 12,
+            "text.color": INK,
+            "axes.titlesize": 14,
+            "axes.titleweight": "semibold",
+            "axes.titlelocation": "left",
+            "axes.titlepad": 14,
+            "axes.labelcolor": MUTED,
+            "axes.labelsize": 12,
+            "axes.edgecolor": LINE,
+            "axes.linewidth": 1,
+            "axes.spines.top": False,
+            "axes.spines.right": False,
+            "axes.grid": True,
+            "grid.color": GRID,
+            "grid.linewidth": 1,
+            "xtick.color": MUTED,
+            "ytick.color": MUTED,
+            "xtick.labelsize": 11,
+            "ytick.labelsize": 11,
+            "legend.frameon": False,
+            "legend.fontsize": 11,
+            "figure.facecolor": "white",
+            "axes.facecolor": "white",
+            "savefig.facecolor": "white",
+            "svg.fonttype": "path",
+            "svg.hashsalt": "probity",
+        }
+    )
 
 
 def save(fig, name):
     fig.savefig(FIG / f"{name}.png", dpi=300, bbox_inches="tight")
     fig.savefig(FIG / f"{name}.svg", bbox_inches="tight", metadata={"Date": None})
     plt.close(fig)
-    print("wrote", name)
+    log.info("wrote %s", name)
 
 
 def load(name):
     return json.loads((RES / name).read_text())
-
-
-s01, s01b, s02b, s03, s05 = (
-    load(f) for f in ["summary.json", "summary01b.json", "summary02b.json", "summary03.json", "summary05.json"]
-)
-L = s01b["layer_selected_on_validation"]
 
 
 # ---------- Figure 1: where the truth signal lives ----------
@@ -262,10 +270,10 @@ def fig_xai():
     ]
     fig, axes = plt.subplots(1, 2, figsize=(11.5, 3.9), sharex=True)
     for ax, (q, boundary, title) in zip(axes, panels):
-        ex = [
-            e for e in att if e["question"] == q and (q != "pressure" or e["label"] == 0)
-        ]  # pushback: answers where Gemma gave in
-        words_share, top = [], {m: [] for m in methods}
+        # pushback: answers where Gemma gave in
+        ex = [e for e in att if e["question"] == q and (q != "pressure" or e["label"] == 0)]
+        words_share: list[float] = []
+        top: dict[str, list[Any]] = {m: [] for m in methods}
         for e in ex:
             w = e["words"]
             cut = max(i for i, x in enumerate(w) if x == boundary)
@@ -540,13 +548,34 @@ def fig_high_stakes():
     save(fig, "fig9_high_stakes")
 
 
-if __name__ == "__main__":
-    fig_layers()
-    fig_negation()
-    fig_shortcut()
-    fig_context()
-    fig_xai()
-    fig_deletion()
-    fig_guard()
-    fig_threshold()
-    fig_high_stakes()
+FIGURES = (
+    fig_layers,
+    fig_negation,
+    fig_shortcut,
+    fig_context,
+    fig_xai,
+    fig_deletion,
+    fig_guard,
+    fig_threshold,
+    fig_high_stakes,
+)
+
+
+def generate(
+    results_dir: str | pathlib.Path = "results",
+    figures_dir: str | pathlib.Path = "figures",
+    fonts_dir: str | pathlib.Path = "assets/fonts",
+) -> list[str]:
+    """Write every figure to ``figures_dir`` and return the names written."""
+    global RES, FIG, s01, s01b, s02b, s03, s05, L
+    matplotlib.use("Agg")
+    RES, FIG = pathlib.Path(results_dir), pathlib.Path(figures_dir)
+    FIG.mkdir(parents=True, exist_ok=True)
+    _apply_style(pathlib.Path(fonts_dir))
+    s01, s01b, s02b, s03, s05 = (
+        load(f) for f in ["summary.json", "summary01b.json", "summary02b.json", "summary03.json", "summary05.json"]
+    )
+    L = s01b["layer_selected_on_validation"]
+    for make in FIGURES:
+        make()
+    return sorted(p.stem for p in FIG.glob("*.png"))

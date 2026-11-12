@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := help
 PY ?= python
 
-.PHONY: help install install-gpu lint format typecheck test check figures robustness clean
+.PHONY: help install install-gpu lint format typecheck test check figures robustness data pipeline clean
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2}'
@@ -31,10 +31,16 @@ test: ## Run the unit tests with coverage
 check: lint typecheck test ## Run every check that CI runs
 
 figures: ## Rebuild figures/ from results/ (no GPU)
-	$(PY) scripts/make_figures.py
+	probity figures
 
 robustness: ## Re-run the robustness checks on results/ (no GPU)
-	$(PY) scripts/robustness_checks.py
+	probity robustness
+
+data: ## Download, verify and split the statements (no GPU)
+	probity data
+
+pipeline: ## Run the full pipeline and compare with the published results (GPU)
+	probity run
 
 clean: ## Remove caches and build artifacts
 	rm -rf build dist .pytest_cache .mypy_cache .ruff_cache .coverage coverage.xml htmlcov
