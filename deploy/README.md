@@ -2,15 +2,16 @@
 
 ## Hugging Face Spaces (live demo)
 
-The app runs on a free [ZeroGPU](https://huggingface.co/docs/hub/spaces-zerogpu) Space, which borrows a GPU only
-while a request is being answered. The Space is built from this repository by
+The live demo is at [huggingface.co/spaces/alexalber/probity](https://huggingface.co/spaces/alexalber/probity). It runs on
+a free [ZeroGPU](https://huggingface.co/docs/hub/spaces-zerogpu) Space, which borrows a GPU only while a request is
+being answered. The Space is built from this repository by
 [`huggingface/build_space.py`](huggingface/build_space.py) and published by the
 [`deploy-space`](../.github/workflows/deploy-space.yml) workflow on every push to `main`.
 
 One-time setup:
 
 1. On Hugging Face, accept the [Gemma license](https://huggingface.co/google/gemma-2-2b-it) and create a
-   **Gradio** Space with **ZeroGPU** hardware (for example `albertogomezsoteres/probity`).
+   **Gradio** Space with **ZeroGPU** hardware (for example `alexalber/probity`).
 2. In the Space settings, add a secret `HF_TOKEN` with a *read* token that has access to Gemma.
 3. In this GitHub repository (*Settings > Secrets and variables > Actions*), add the secret `HF_TOKEN` with a
    *write* token for the Space, and the variable `HF_SPACE_ID` with the Space id.
