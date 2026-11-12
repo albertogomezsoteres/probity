@@ -1,0 +1,100 @@
+# Probity configuration. These are the settings behind every published result.
+# Override any value from the command line, e.g. `probity train --set probe.C=0.05 --set run.seed=1`.
+
+run:
+  seed: 0
+  output_dir: outputs          # activations, run logs and artifacts (git-ignored)
+  results_dir: results         # published results used by the README, the figures and the app
+  log_level: INFO
+
+model:
+  id: google/gemma-2-2b-it
+  dtype: bfloat16
+  device: cuda
+  attn_implementation: eager
+  batch_size: 32
+  fact_prompt: Tell me one fact.   # statements are read as the model's answer to this request
+
+data:
+  repo: saprmarks/geometry-of-truth
+  commit: 5d1c630c44f7e50bda7ad86d601ccadf9abc5ddb
+  cache_dir: data/raw
+  max_per_dataset: 1000        # balanced cap per dataset (half true, half false)
+  test_fraction: 0.2
+  statements_sha256: 3f34d6f3a29b54c0cade156541e02fc41fcb0925501964e07df2b6cdf9df6267
+  datasets:
+    cities:
+      topic: geography
+      negated: false
+      sha256: f2560a0c1758c69935b50125111b574b71896bb75930dd87b1d8c973c1fa086e
+    neg_cities:
+      topic: geography
+      negated: true
+      sha256: 66c5c84de98ca15570138c205ab0e3907b57750083fac72a4eacafc3d9ebcea7
+    sp_en_trans:
+      topic: translation
+      negated: false
+      sha256: 9afa97c1b8af539a05f47655a80a5c7832c6fdb914885fd24cb4bcccbe2795b5
+    neg_sp_en_trans:
+      topic: translation
+      negated: true
+      sha256: bec33e37047135b15cdd18c0cb0c66b65fb435ace08910cbcc220ce1ef610c96
+    larger_than:
+      topic: numbers
+      negated: false
+      sha256: 406d6872e97910f3af5a031600d4932b5a567b8666e7545c8b446057471ad723
+    smaller_than:
+      topic: numbers
+      negated: false
+      sha256: ee6b7cf668d7e0fb3f49a84ca8d510cb7e484ae029ef86ed238362e26ef61a44
+    companies_true_false:
+      topic: business
+      negated: false
+      sha256: 75a31139def9838dcaa4e2f1e5f3680f44f09f3c94553f9ad3b3a5a476124c8c
+    counterfact_true_false:
+      topic: knowledge
+      negated: false
+      sha256: 5af51456d6dbd3a53d8e2ee6e4aadaca7eb02ff9136ad825866458e7283b5273
+    common_claim_true_false:
+      topic: claims
+      negated: false
+      sha256: 1889b4793c2ebd13c767eea8b65ebd4a5c2da700567677d512097b495a262576
+
+split:                         # fact-grouped, so a fact never appears in two splits
+  train_pct: 60
+  val_pct: 20                  # test = the remaining 20%
+  n_folds: 5
+
+probe:
+  C: 0.1                       # L2 strength of the logistic regression
+  max_iter: 2000
+  tol: 0.001
+  layer: null                  # null: choose the layer on validation facts
+  bank_activation_dtype: float16
+
+familiarity:                   # out-of-distribution flag shown in the app
+  n_components: 64
+  percentile: 99.0
+
+evaluation:
+  n_bootstrap: 1000            # resamples of facts for 95% intervals
+  ask_model: true              # baseline: ask Gemma "true or false?"
+  unsure_low: 0.30
+  unsure_high: 0.70
+
+guard:                         # Polygraph Guard
+  tau: 0.50                    # chosen on development subjects (notebook 05)
+  n_samples: 4
+  temperature: 0.8
+  top_p: 0.95
+  max_new_tokens: 160
+
+app:
+  probes: results/app_probes.npz
+  lime_samples: 160
+  ig_steps: 32
+  monitor_max_rows: 500
+
+tracking:                      # every run is also recorded in <output_dir>/runs/
+  wandb: false
+  wandb_project: probity

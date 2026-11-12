@@ -23,7 +23,7 @@ These rules apply to every experiment. The goal is that no result depends on a c
 ## Statistics
 
 - AUROC is the main metric because it does not depend on a threshold.
-- 95% confidence intervals use 1,000 bootstrap resamples of facts or subjects, not of sentences. Exception: the notebook 02b intervals resample claims; `scripts/robustness_checks.py` recomputes the main AUROCs with intervals over subjects.
+- 95% confidence intervals use 1,000 bootstrap resamples of facts or subjects, not of sentences. Exception: the notebook 02b intervals resample claims; `probity robustness` recomputes the main AUROCs with intervals over subjects.
 - For the guard, I report the rate before and after, the interval of the difference, and how often the guard abstained or stepped in.
 
 ## Controls

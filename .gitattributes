@@ -1,0 +1,16 @@
+# Normalise line endings.
+* text=auto eol=lf
+
+# Binary files.
+*.png binary
+*.pdf binary
+*.npz binary
+*.ttf binary
+assets/fonts/*.txt -text
+
+# Language statistics: the notebooks are experiment reports saved with their outputs,
+# and results/ and figures/ are generated files. The code lives in src/.
+notebooks/*.ipynb linguist-documentation
+results/** linguist-generated
+figures/** linguist-generated
+uv.lock linguist-generated

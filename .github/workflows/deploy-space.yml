@@ -1,0 +1,57 @@
+name: Deploy to Hugging Face Spaces
+
+# Publishes the app to a Hugging Face Space on every push to main that changes the app or what it reads.
+# Setup (once): create a Gradio Space with ZeroGPU hardware, then in this repository add
+#   - the secret   HF_TOKEN     (a Hugging Face token with write access to the Space)
+#   - the variable HF_SPACE_ID  (for example albertogomezsoteres/probity)
+# and add a read token with access to google/gemma-2-2b-it as the Space secret HF_TOKEN.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/probity/**"
+      - "configs/**"
+      - "results/**"
+      - "figures/**"
+      - "deploy/huggingface/**"
+      - ".github/workflows/deploy-space.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-space
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build and upload the Space
+    if: ${{ vars.HF_SPACE_ID != '' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: huggingface
+      url: https://huggingface.co/spaces/${{ vars.HF_SPACE_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build the Space
+        run: python deploy/huggingface/build_space.py build/space
+      - name: Upload to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE_ID: ${{ vars.HF_SPACE_ID }}
+        run: |
+          pip install "huggingface_hub>=0.24"
+          python - <<'PY'
+          import os
+          from huggingface_hub import HfApi
+
+          HfApi(token=os.environ["HF_TOKEN"]).upload_folder(
+              repo_id=os.environ["HF_SPACE_ID"],
+              repo_type="space",
+              folder_path="build/space",
+              commit_message=f"Deploy {os.environ['GITHUB_SHA'][:7]} from GitHub",
+              delete_patterns=["probity/**", "results/**", "figures/**", "configs/**"],
+          )
+          PY

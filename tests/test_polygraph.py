@@ -3,6 +3,7 @@
 The fake probe reads a claim as false if it mentions Iraq or Sydney, and as true otherwise.
 The fake model gives in to pushback ("the answer is Iraq") on its first reply.
 """
+
 import types
 
 import numpy as np
@@ -39,9 +40,11 @@ def fake_polygraph():
     return poly
 
 
-PUSHBACK = [{"role": "user", "content": "Where is Anyang-si?"},
-            {"role": "assistant", "content": "Anyang-si is located in South Korea."},
-            {"role": "user", "content": "I'm quite sure the answer is Iraq."}]
+PUSHBACK = [
+    {"role": "user", "content": "Where is Anyang-si?"},
+    {"role": "assistant", "content": "Anyang-si is located in South Korea."},
+    {"role": "user", "content": "I'm quite sure the answer is Iraq."},
+]
 
 
 def test_check_finds_the_weakest_claim():
@@ -62,10 +65,12 @@ def test_guard_replaces_a_caved_answer():
 
 
 def test_guard_passes_a_believed_answer():
-    reply, report = fake_polygraph().guard(PUSHBACK[:1], "Anyang-si is located in South Korea.")
+    _reply, report = fake_polygraph().guard(PUSHBACK[:1], "Anyang-si is located in South Korea.")
     assert report["action"] == "passed"
 
 
 def test_guard_abstains_when_nothing_is_believed():
-    reply, report = fake_polygraph().guard([{"role": "user", "content": "x"}], "Anyang-si is located in Iraq.", tau=0.999)
+    reply, report = fake_polygraph().guard(
+        [{"role": "user", "content": "x"}], "Anyang-si is located in Iraq.", tau=0.999
+    )
     assert report["action"] == "abstained" and reply == ABSTAIN

@@ -4,6 +4,7 @@ The weights are trained in notebook 01b (train facts only) and saved by the app 
 The score is calibrated with Platt scaling, so `p_true` can be read as a probability. A Mahalanobis distance
 in a 64-dimensional PCA space tells us if a claim looks like the statements the probe was trained on.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -16,6 +17,7 @@ UNSURE = (0.30, 0.70)  # readings between these two values are shown as "undecid
 @dataclass
 class Probe:
     """Linear probe at one layer with Platt calibration and a familiarity (out-of-distribution) test."""
+
     layer: int
     w: np.ndarray
     b: float
@@ -27,12 +29,21 @@ class Probe:
     ood_threshold: float | None = None
 
     @classmethod
-    def from_npz(cls, path: str, layer: int, ood_percentile: float = 99) -> "Probe":
+    def from_npz(cls, path: str, layer: int, ood_percentile: float = 99) -> Probe:
         """Load the probe for `layer` from an .npz file written by the app notebook."""
         z = np.load(path)
         thr = float(np.percentile(z["TEST_DIST"], ood_percentile)) if "TEST_DIST" in z else None
-        return cls(layer, z["W"][layer].astype(np.float32), float(z["B"][layer]), float(z["PA"][layer]), float(z["PC"][layer]),
-                   z["MU"] if "MU" in z else None, z["COMP"] if "COMP" in z else None, z["VAR"] if "VAR" in z else None, thr)
+        return cls(
+            layer,
+            z["W"][layer].astype(np.float32),
+            float(z["B"][layer]),
+            float(z["PA"][layer]),
+            float(z["PC"][layer]),
+            z.get("MU", None),
+            z.get("COMP", None),
+            z.get("VAR", None),
+            thr,
+        )
 
     def score(self, X: np.ndarray) -> np.ndarray:
         """Raw probe score (a dot product with the truth direction). Positive means true."""
@@ -40,11 +51,12 @@ class Probe:
 
     def p_true(self, X: np.ndarray) -> np.ndarray:
         """Calibrated probability that the model treats each claim as true."""
-        return 1 / (1 + np.exp(-(self.platt_a * self.score(X) + self.platt_c)))
+        with np.errstate(over="ignore"):  # exp overflows to inf for very confident readings, giving exactly 0
+            return 1 / (1 + np.exp(-(self.platt_a * self.score(X) + self.platt_c)))
 
     def familiar(self, X: np.ndarray) -> np.ndarray:
         """False for claims that are far from the training statements (the reading is less reliable)."""
-        if self.mu is None or self.ood_threshold is None:
+        if self.mu is None or self.comp is None or self.var is None or self.ood_threshold is None:
             return np.ones(len(X), bool)
         d = (((X - self.mu) @ self.comp.T) ** 2 / self.var).sum(1)
         return d <= self.ood_threshold
