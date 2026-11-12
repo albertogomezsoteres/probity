@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="64" viewBox="0 0 320 64" role="img" aria-label="Try the live demo on Hugging Face Spaces">
+  <defs>
+    <linearGradient id="edge" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#FF6A5C"/>
+      <stop offset="1" stop-color="#5AA9FF"/>
+    </linearGradient>
+    <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#161C26"/>
+      <stop offset="1" stop-color="#0A0D12"/>
+    </linearGradient>
+  </defs>
+  <rect x="1.5" y="1.5" width="317" height="61" rx="16" fill="url(#fill)" stroke="url(#edge)" stroke-width="2"/>
+  <circle cx="36" cy="32" r="15" fill="#5AA9FF" fill-opacity="0.16"/>
+  <path d="M31 24.5 L42 32 L31 39.5 Z" fill="#5AA9FF"/>
+  <text x="62" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#EDF1F5">Try the live demo</text>
+  <text x="62" y="47" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#98A3B3">on Hugging Face Spaces · no install</text>
+  <path d="M290 26 L296 32 L290 38" fill="none" stroke="#98A3B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
