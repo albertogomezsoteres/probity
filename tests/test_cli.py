@@ -11,7 +11,7 @@ def test_help_lists_every_command(capsys):
     with pytest.raises(SystemExit):
         main(["--help"])
     out = capsys.readouterr().out
-    for cmd in ("data", "extract", "train", "run", "check", "audit", "info"):
+    for cmd in ("data", "extract", "train", "run", "check", "audit", "app", "figures", "robustness", "info"):
         assert cmd in out
 
 

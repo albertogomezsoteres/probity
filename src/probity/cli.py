@@ -119,6 +119,16 @@ def cmd_audit(args: argparse.Namespace) -> int:
     return 0
 
 
+# ---------- app ----------
+def cmd_app(args: argparse.Namespace) -> int:
+    from .app import create_app
+
+    cfg = _config(args)
+    demo, launch_style = create_app(cfg, figures_dir=args.figures, find_demos=args.find_demos)
+    demo.queue().launch(server_name=args.host, server_port=args.port, share=args.share, **launch_style)
+    return 0
+
+
 # ---------- reports (no GPU) ----------
 def cmd_figures(args: argparse.Namespace) -> int:
     from .reports.figures import generate
@@ -192,6 +202,14 @@ def build_parser() -> argparse.ArgumentParser:
             p.add_argument("--tau", type=float, default=None, help="flag answers below this probability")
             p.add_argument("--max-rows", type=int, default=None)
 
+    p = add("app", "Launch the interactive Probity app (GPU).", cmd_app)
+    p.add_argument("--host", default="127.0.0.1", help="use 0.0.0.0 to serve on the network")
+    p.add_argument("--port", type=int, default=7860)
+    p.add_argument("--share", action="store_true", help="create a temporary public *.gradio.live link")
+    p.add_argument("--figures", default="figures", help="figures shown in the Evidence tab")
+    p.add_argument(
+        "--find-demos", action="store_true", help="verify the demo cases live and save them to results/ first"
+    )
     p = add("figures", "Rebuild the README and poster figures from results/ (no GPU).", cmd_figures)
     p.add_argument("--out", default="figures", help="output directory")
     p.add_argument("--fonts", default="assets/fonts", help="directory with the IBM Plex fonts")

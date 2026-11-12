@@ -74,6 +74,9 @@ Issues = "https://github.com/albertogomezsoteres/probity/issues"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+"probity.app" = ["static/*.css"]
+
 # ---------- pytest ----------
 [tool.pytest.ini_options]
 minversion = "8.0"

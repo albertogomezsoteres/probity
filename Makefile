@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := help
 PY ?= python
 
-.PHONY: help install install-gpu lint format typecheck test check figures robustness data pipeline clean
+.PHONY: help install install-gpu lint format typecheck test check figures robustness data pipeline app clean
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2}'
@@ -41,6 +41,9 @@ data: ## Download, verify and split the statements (no GPU)
 
 pipeline: ## Run the full pipeline and compare with the published results (GPU)
 	probity run
+
+app: ## Launch the Probity app locally (GPU)
+	probity app
 
 clean: ## Remove caches and build artifacts
 	rm -rf build dist .pytest_cache .mypy_cache .ruff_cache .coverage coverage.xml htmlcov
